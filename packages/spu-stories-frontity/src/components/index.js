@@ -6,7 +6,11 @@ import Loading from "../components/loading"
 import List from "../components/list"
 import Post from "../components/post"
 import Page from "../components/page"
+import HomePage from "../components/home-page"
+import ResponseIssue from "../components/response-issue"
 import Error from "./error"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
@@ -14,107 +18,86 @@ const Root = ({ state, actions }) => {
   return (
     <>
     <Head>
-      <title>My First Frontity Theme</title>
-      <meta
-        name="description"
-        content="Based on the Frontity step by step tutorial"
-      />
+      <meta charset="UTF-8"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+      <title>SPU Stories</title>
+      <meta name="author" content="Thy Tran"/>
     </Head>
     <Global
       styles={css`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+        body {
+          gap: 0;
+          position: relative;
+          min-height: 100vh;
         }
-        html {
-          font-family: system-ui, Verdana, Arial, sans-serif;
+
+        a {
+          vertical-align: baseline;
+        }
+
+        a:active, a:hover, a:link, a:visited {
+          text-decoration: none;
+        }
+
+        main {
+          display: block;
+          gap: 64px;
+          margin-top: 50px;
+        }
+
+        input {
+          border: 1px solid rgba(0, 0, 0, 0.25);
+          border-radius: 2px;
+          height: 48px;
+          width: 100%;
+        }
+
+        label {
+          font-family: "Inter", sans-serif;
+          font-size: 20px;
+          line-height: 25px;
+          display: flex;
+          align-items: center;
+          text-transform: capitalize;
+          color: #333333;
+        }
+
+        p {
+          margin: 0;
         }
       `}
     />
-      <Header isPostType={data.isPostType} isPage={data.isPage}>
-        <HeaderContent>
-          <h1>Frontity Workshop</h1>
-          {
-            state.theme.isUrlVisible ? (
-              <>
-                Current URL: {state.router.link}{" "}
-                <Button onClick={actions.theme.toggleUrl}>&#x3c; Hide URL</Button>
-              </>
-            ) : (
-              <Button onClick={actions.theme.toggleUrl}>Show URL &#x3e;</Button>
-            )
-          }
-          <Menu>
-            <Link link="/">Home</Link>
-            <Link link="/about-us">About Us</Link>
-            <Link link="/articles">Articles</Link>
-            <Link link="/response-issues">Response Issues</Link>
-          </Menu>
-        </HeaderContent>
-      </Header>
+      <Header/>
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
           <Post when={data.isArticle} />
-          <Page when={data.isResponseIssue} />
+          <ResponseIssue when={data.isResponseIssue} />
           <Page when={data.isPage} />
+          <HomePage when={data.isHome} />
+          <List when={data.isArchive} />
           <Error when={data.isError} />
         </Switch>
       </Main>
+      <Footer/>
     </>
   )
 }
 
 export default connect(Root)
 
-const Header = styled.header`
-background-color: #e5edee;
-border-width: 0 0 8px 0;
-border-style: solid;
-border-color: ${ props => props.isPostType ? ( props.isPage ? 'lightsteelblue' : 'lightseagreen' ) : 'maroon'};
 
-  h1 {
-    color: #4a4a4a;
-  }
-`
-
-const HeaderContent = styled.div`
-  max-width: 800px;
-  padding: 2em 1em;
-  margin: auto;
-`
 const Main = styled.main`
-  max-width: 800px;
-  padding: 1em;
-  margin: auto;
-
-  img {
-    max-width: 100%;
-  }
-  h2 {
-    margin: 0.5em 0;
-  }
-  p {
-    line-height: 1.25em;
-    margin-bottom: 0.75em;
-  }
-  figcaption {
-    color: #828282;
-    font-size: 0.8em;
-    margin-bottom: 1em;
-  }
-`
-
-const Menu = styled.nav`
   display: flex;
-  flex-direction: row;
-  margin-top: 1em;
-  & > a {
-    margin-right: 1em;
-    color: steelblue;
-    text-decoration: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  position: relative;
+  padding-bottom: 800px;
+  width: 100%;
+  @media only screen and (max-width: 1024px) {
+    padding-bottom: 80rem;
   }
 `
 

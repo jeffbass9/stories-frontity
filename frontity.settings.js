@@ -22,6 +22,11 @@ const settings = {
               "type": "response-issues",
               "endpoint": "response-issues",
               "archive": "/response-issues"
+            },
+            {
+              "type": "articles",
+              "endpoint": "articles",
+              "archive": "/articles"
             }
           ]
         }
