@@ -114,9 +114,6 @@ grid-template-columns: 3fr 3fr;
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
-      @media only screen and (max-width: 1024px) {
-        aspect-ratio: 3/2;
-      }
     }
   }
   & .featured-content {
@@ -172,210 +169,211 @@ grid-template-columns: 3fr 3fr;
       }
     }
   }
-  & div:last-of-type {
+}
+& div:last-of-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 36px;
+  gap: 32px;
+  @media only screen and (max-width: 1024px) {
+    padding: 12px 18px;
+  }
+  & .response-latest-sec {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 24px 36px;
-    gap: 32px;
-    @media only screen and (max-width: 1024px) {
-      padding: 12px 18px;
+    padding: 0;
+    margin: 0;
+    gap: 24px;
+    width: 100%;
+    & .response-latest-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 0;
+      margin: 0;
+      gap: 16px;
+      width: 100%;
+      & .text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        margin: 0;
+        gap: 4px;
+        & .header {
+          font-family: "Inter SemiBold", sans-serif;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 39px;
+          padding: 0;
+          color: #000000;
+          width: 100%;
+          margin: 0;
+          letter-spacing: 0.06em;
+          text-transform: capitalize;
+        }
+        & .season {
+          font-family: 'Inter', sans-serif;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 29px;
+          letter-spacing: 0.02em;
+          color: #000000;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          text-transform: capitalize;
+        }
+      }
+      & .response-latest-cover{
+        width: 30%;
+        img {
+          display: block;
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: auto;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
     }
-    & .response-latest-sec {
+  }
+  & .featured-section-header {
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-top: 6px;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+    border-top: 8px solid #000000;
+    font-family: "Inter Bold", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 31px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: black;
+  }
+  & .popular-article-sec {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    margin-top: 48px;
+    gap: 24px;
+    @media only screen and (max-width: 1024px) {
+      margin-top: 24px;
+    }
+    & .popular-column {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       padding: 0;
-      margin: 0;
       gap: 24px;
-      width: 100%;
-      & .response-latest-row {
+      margin: 0;
+      & .popular-article-card {
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         align-items: flex-start;
-        padding: 0;
+        padding: 0 0 24px;
+        border-bottom: 0.5px solid #858585;
+        flex: none;
+        order: 0;
+        align-self: stretch;
+        flex-grow: 0;
         margin: 0;
-        gap: 16px;
-        width: 100%;
+        & div {
+          width: 48%;
+          padding: 0;
+          box-sizing: border-box;
+          position: relative;
+          & img {
+            display: block;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: cover;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+        }
         & .text {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
           padding: 0;
+          gap: 16px;
           margin: 0;
-          gap: 4px;
-          & .header {
-            font-family: "Inter SemiBold", sans-serif;
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 39px;
-            padding: 0;
-            color: #000000;
-            width: 100%;
-            margin: 0;
-            letter-spacing: 0.06em;
-            text-transform: capitalize;
-          }
-          & .season {
-            font-family: 'Inter', sans-serif;
-            font-style: normal;
+          & .date {
+            font-family: "Inter", sans-serif;
             font-weight: 400;
             font-size: 16px;
-            line-height: 29px;
-            letter-spacing: 0.02em;
-            color: #000000;
+            line-height: 19px;
+            color: #221E1F;
             width: 100%;
+            padding: 0;
             margin: 0;
-            padding: 0;
-            text-transform: capitalize;
           }
-        }
-        & .response-latest-cover{
-          width: 30%;
-          img {
-            display: block;
-            background-repeat: no-repeat;
-            background-size: cover;
-            height: auto;
-            width: 100%;
-            object-fit: cover;
-          }
-        }
-      }
-    }
-    & .featured-section-header {
-      width: -moz-fit-content;
-      width: fit-content;
-      padding-top: 6px;
-      padding-left: 0;
-      padding-right: 0;
-      margin: 0;
-      border-top: 8px solid #000000;
-      font-family: "Inter Bold", sans-serif;
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 31px;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: black;
-    }
-    & .popular-article-sec {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 0;
-      margin-top: 48px;
-      gap: 24px;
-      @media only screen and (max-width: 1024px) {
-        margin-top: 24px;
-      }
-      & .popular-column {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        gap: 24px;
-        margin: 0;
-        & .popular-article-card {
-          box-sizing: border-box;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-start;
-          padding: 0 0 24px;
-          border-bottom: 0.5px solid #858585;
-          flex: none;
-          order: 0;
-          align-self: stretch;
-          flex-grow: 0;
-          margin: 0;
-          & div {
-            width: 48%;
-            padding: 0;
-            box-sizing: border-box;
-            position: relative;
-            & img {
-              display: block;
-              background-repeat: no-repeat;
-              background-position: 50%;
-              background-size: cover;
-              width: 100%;
-              height: auto;
-              object-fit: cover;
-            }
-          }
-          & .text {
+          & .heading-content {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             padding: 0;
-            gap: 16px;
-            margin: 0;
-            & .date {
-              font-family: "Inter", sans-serif;
-              font-weight: 400;
+            gap: 8px;
+            width: 100%;
+            & .category {
+              font-family: "Inter SemiBold", sans-serif;
+              font-weight: 700;
               font-size: 16px;
-              line-height: 19px;
-              color: #221E1F;
+              line-height: 20px;
+              text-transform: uppercase;
+              color: #5C5C5C;
               width: 100%;
-              padding: 0;
-              margin: 0;
             }
-            & .heading-content {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
+            & .title {
+              font-family: "Inter SemiBold", sans-serif;
+              font-weight: 700;
+              font-size: 24px;
+              line-height: 31px;
               padding: 0;
-              gap: 8px;
+              color: #3E2B2E;
               width: 100%;
-              & .category {
-                font-family: "Inter SemiBold", sans-serif;
-                font-weight: 700;
-                font-size: 16px;
-                line-height: 20px;
-                text-transform: uppercase;
-                color: #5C5C5C;
-                width: 100%;
-              }
-              & .title {
-                font-family: "Inter SemiBold", sans-serif;
-                font-weight: 700;
-                font-size: 24px;
-                line-height: 31px;
-                padding: 0;
-                color: #3E2B2E;
-                width: 100%;
-                margin: 0;
-              }
+              margin: 0;
             }
           }
         }
       }
     }
-    & .popular-header {
+  }
+  & .popular-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0;
+    & .popular-view-more {
       display: flex;
       flex-direction: row;
-      align-items: flex-start;
+      justify-content: flex-end;
+      align-items: center;
       padding: 0;
-      & .popular-view-more {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-        flex: none;
-        order: 1;
-        align-self: stretch;
-        flex-grow: 1;
-        font-family: "Inter", sans-serif;
-        font-size: 16px;
-        line-height: 28px;
-        letter-spacing: 0.05em;
-        text-transform: capitalize;
-        color: #5C5C5C;
-      }
+      margin: 0;
+      flex: none;
+      order: 1;
+      align-self: stretch;
+      flex-grow: 1;
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      line-height: 28px;
+      letter-spacing: 0.05em;
+      text-transform: capitalize;
+      color: #5C5C5C;
     }
   }
+}
 }
 `

@@ -24,6 +24,7 @@
     "@frontity/wp-source": "^1.11.7",
     "dayjs": "^1.11.7",
     "frontity": "^1.17.2",
+    "html-react-parser": "^3.0.12",
     "spu-stories-frontity": "file:packages/spu-stories-frontity"
   }
 }

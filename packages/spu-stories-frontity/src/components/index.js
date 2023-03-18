@@ -30,6 +30,7 @@ const Root = ({ state, actions }) => {
           gap: 0;
           position: relative;
           min-height: 100vh;
+          margin: 0;
         }
 
         a {
@@ -38,12 +39,6 @@ const Root = ({ state, actions }) => {
 
         a:active, a:hover, a:link, a:visited {
           text-decoration: none;
-        }
-
-        main {
-          display: block;
-          gap: 64px;
-          margin-top: 50px;
         }
 
         input {
@@ -89,16 +84,17 @@ export default connect(Root)
 
 
 const Main = styled.main`
+  @media only screen and (max-width: 1024px) {
+    padding-bottom: 80rem;
+    margin-top: 50px;
+  }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 64px;
   position: relative;
   padding-bottom: 800px;
   width: 100%;
-  @media only screen and (max-width: 1024px) {
-    padding-bottom: 80rem;
-  }
+  margin-top: 108px;
 `
 
 const Button = styled.button`

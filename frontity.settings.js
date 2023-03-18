@@ -17,6 +17,9 @@ const settings = {
         "source": {
           "url": "https://stories.spu.edu",
           "postEndpoint": "articles",
+          "params": {
+            "per_page": 8
+          },
           "postTypes": [
             {
               "type": "response-issues",
@@ -27,6 +30,23 @@ const settings = {
               "type": "articles",
               "endpoint": "articles",
               "archive": "/articles"
+            }
+          ],
+          "taxonomies": [
+            {
+              "taxonomy": "response-department",
+              "endpoint": "response-departments",
+              "postTypeEndpoint": "response-issues"
+            },
+            {
+              "taxonomy": "subject",
+              "endpoint": "subjects",
+              "postTypeEndpoint": "articles"
+            },
+            {
+              "taxonomy": "topic",
+              "endpoint": "topics",
+              "postTypeEndpoint": "articles"
             }
           ]
         }

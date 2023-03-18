@@ -72,18 +72,7 @@ z-index: 9000;
 & #hamburger {
   display: none;
 }
-a{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 36px;
-  background-color: white;
-  border: 1px solid black;
-  border-left: none;
-  text-decoration: none;
-  text-transform: uppercase;
-}
+
 @media screen and (max-width: 1024px){
   display: inline-block;
 }
@@ -125,50 +114,72 @@ const Menu = styled.nav`
     width: 100%;
     z-index: 100;
     transition: 0.5s ease;
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-      min-height: 50px;
-      background-color: white;
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
-      border-left: 1px solid black;
-      font-size: 14px;
-      line-height: 18px;
-      font-weight: 500;
-      text-decoration: none;
-      color: black;
-      span {
-        padding: 14px;
-      }
-      &:nth-child(1) {
-        display: none;
-      }
-    }
     &.open {
       top: 50px;
     }
   }
   display: flex;
   flex-direction: row;
-  margin-top: 1em;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 36px;
+    background-color: white;
+    border: 1px solid black;
+    border-left: none;
+    line-height: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #5C5C5C;
+    font-family: "Inter SemiBold", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    margin: auto;
+    &:hover:not(.active) {
+      background-color: #872937;
+      color: white;
+    }
+  }
 `
 
 const MobileMenu = styled.nav`
+color: #5C5C5C;
+font-family: "Inter SemiBold",sans-serif;
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+margin: auto;
+&:hover:not(.active){
+  background-color: #872937;
+  color: white;
+}
+@media screen and (max-width: 1024px){
+  display: none;
+}
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 36px;
+  background-color: white;
+  border: 1px solid black;
+  border-left: none;
+  line-height: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
   color: #5C5C5C;
-  font-family: "Inter SemiBold",sans-serif;
+  font-family: "Inter SemiBold", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
   margin: auto;
-  &:hover:not(.active){
+  &:hover:not(.active) {
     background-color: #872937;
     color: white;
-  }
-  @media screen and (max-width: 1024px){
-    display: none;
   }
 }`
 
@@ -301,4 +312,5 @@ const Hamburger = styled.button`
       width: 0;
       left: 50%;
     }
-  }`
+  }
+  display: none;`
