@@ -1,5 +1,6 @@
 import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
+import FontFaces from "../components/styles/font-faces"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
 import Loading from "../components/loading"
@@ -24,6 +25,7 @@ const Root = ({ state, actions }) => {
       <title>SPU Stories</title>
       <meta name="author" content="Thy Tran"/>
     </Head>
+    <FontFaces/>
     <Global
       styles={css`
         body {

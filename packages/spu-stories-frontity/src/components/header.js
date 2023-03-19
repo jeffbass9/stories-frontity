@@ -9,40 +9,40 @@ const Header = ({ state, actions}) => {
   return(
     <>
       <HeaderContainer>
-          <SearchTool>
-            <img src={search_icon} alt="Search"/>
-          </SearchTool>
 
           <TopNav>
+            <div className="top-nav-right">
+              <Link link="https://stories.spu.edu/topic/response-magazine/">
+                <img src={response_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
+              </Link>
+              <SearchTool>
+                <img src={search_icon} alt="Search"/>
+              </SearchTool>
+            </div>
             <div className="top-nav-left">
               <Link link="spu-stories.html">
                 <img src={stories_logo} className="top-nav-left__logo" alt="SPU Stories"/>
               </Link>
             </div>
-            <div className="top-nav-right">
-              <Link link="https://stories.spu.edu/topic/response-magazine/">
-                <img src={response_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
-              </Link>
-              <img src={search_icon} className="top-nav-right__search" alt="Search"/>
-            </div>
+            <input name="toggle" type="checkbox" css={hamburger_trigger}/>
+            <Hamburger htmlFor="toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </Hamburger>
+            <Menu>
+              <Link link="/">Campus News</Link>
+              <Link link="/">Alumni News</Link>
+              <Link link="/">Features</Link>
+              <Link link="/">Reflections</Link>
+              <Link link="/">Life at SPU</Link>
+              <Link link="/">Departments</Link>
+            </Menu>
           </TopNav>
 
-          <Menu>
-            <Link link="/">Campus News</Link>
-            <Link link="/">Alumni News</Link>
-            <Link link="/">Features</Link>
-            <Link link="/">Reflections</Link>
-            <Link link="/">Life at SPU</Link>
-            <Link link="/">Departments</Link>
-          </Menu>
-          <Hamburger>
-              <div>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </div>
-          </Hamburger>
+
+
       </HeaderContainer>
     </>
   )
@@ -69,105 +69,48 @@ z-index: 9000;
   width: 100%;
   z-index: 100;
 }
-& #hamburger {
-  display: none;
+input:checked ~ nav {
+  left: 0;
 }
-
 @media screen and (max-width: 1024px){
   display: inline-block;
 }
-& .response-link{
-  @media (max-width: 1024px) {
-    display: 'flex'
-    justify-content: 'center'
-    align-items: 'center'
-    text-transform: 'uppercase'
-    text-align: 'center'
-    text-decoration: 'none'
-    position: 'relative'
-    height: '50px'
-  }
-  display: 'none'
-  justify-content: 'center'
-  text-transform: 'uppercase'
-  text-align: 'center'
-  text-decoration: 'none'
-  position: 'relative'
-  color: 'black'
-  font-family: 'Sang Bleu Empire Bold', 'serif'
-  font-weight: '550'
-  font-size: '30px'
-  text-transform: 'uppercase'
-  margin: 'auto'
-  &:hover:not(.active) {
-    color: '#872937'
-  }
+input:checked + label span:nth-child(1) {
+  top: 7px;
+  width: 0;
+  left: 50%;
+}
+input:checked + label span:nth-child(2) {
+  transform: rotate(45deg);
+}
+input:checked + label span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+input:checked + label span:nth-child(4) {
+  top: 7px;
+  width: 0;
+  left: 50%;
 }
 `
 
 const Menu = styled.nav`
-  @media (max-width: 1024px) {
-    display: block;
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    transition: 0.5s ease;
-    &.open {
-      top: 50px;
-    }
-  }
+position: absolute;
+width: 100%;
+padding-top: 61px;
+list-style-type: none;
+left: -100%;
+-webkit-transition: left 0.3s ease;
+-o-transition: left 0.3s ease;
+transition: left 0.3s ease;
+box-sizing: border-box;
+text-align: center;
+a{
   display: flex;
-  flex-direction: row;
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 36px;
-    background-color: white;
-    border: 1px solid black;
-    border-left: none;
-    line-height: 18px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #5C5C5C;
-    font-family: "Inter SemiBold", sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    margin: auto;
-    &:hover:not(.active) {
-      background-color: #872937;
-      color: white;
-    }
-  }
-`
-
-const MobileMenu = styled.nav`
-color: #5C5C5C;
-font-family: "Inter SemiBold",sans-serif;
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-margin: auto;
-&:hover:not(.active){
-  background-color: #872937;
-  color: white;
-}
-@media screen and (max-width: 1024px){
-  display: none;
-}
-a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
   min-height: 36px;
   background-color: white;
   border: 1px solid black;
-  border-left: none;
   line-height: 18px;
   text-decoration: none;
   text-transform: uppercase;
@@ -177,140 +120,123 @@ a {
   font-weight: 700;
   font-size: 16px;
   margin: auto;
+  width: 100%;
   &:hover:not(.active) {
     background-color: #872937;
     color: white;
   }
-}`
+}
+
+@media (min-width: 1024px) {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-left: none;
+  }
+}
+
+`
 
 const TopNav = styled.div`
-@media (max-width: 1024px) {
-  display: none;
-}
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
 position: relative;
-overflow: hidden;
-padding: 12px 32px;
-& .top-nav-left{
-  float: left;
-}
-& .top-nav-centered{
-  float: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  & .response-nav{
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    position: relative;
-  }
-}
 & .top-nav-right {
-  float: right;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.5em 1em;
+  @media screen and (min-width: 1024px){
+    padding: 1em;
+  }
   &__response{
-    width: 120px;
-    height: auto;
+    display: none;
+    @media screen and (min-width: 1024px){
+      display: inline-block;
+      width: 120px;
+      height: auto;
+    }
   }
-  &__search{
-    margin-left: 12px;
+}
+& .top-nav-left{
+  padding: 0.5em 1em;
+  @media screen and (min-width: 1024px){
+    padding: 1em;
   }
+}
+@media screen and (min-width: 1024px){
+  flex-direction: row-reverse;
 }`
 
 const SearchTool = styled.div`
-  @media (max-width: 1024px) {
-    float: left;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 50px;
-    margin: 0;
-  }
-  display: none;
-  & img {
-    margin-left: 12px;
-    @media (max-width: 1024px) {
-      float: none;
-      position: absolute;
-      top: 50%;
-      left: 12px;
-      transform: translate(-50%, -50%);
-    }
-  }`
+`
 
-const Hamburger = styled.button`
-  @media (max-width: 1024px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 50px;
-    margin: 0;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    z-index: 300;
-    div {
-      width: 20px;
-      height: 14px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      span {
-        display: block;
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        background: black;
-        border-radius: 2px;
-        opacity: 1;
-        left: 0;
-        transform: rotate(0deg);
-        transition: 0.25s ease-in-out;
-      }
-      span:nth-child(1) {
-        top: 0;
-      }
-      span:nth-child(2) {
-        top: 7px;
-      }
-      span:nth-child(3) {
-        top: 7px;
-      }
-      span:nth-child(4) {
-        top: 14px;
-      }
-    }
-    &.open div span:nth-child(1) {
-      top: 7px;
-      width: 0;
-      left: 50%;
-    }
-    &.open div span:nth-child(2) {
-      transform: rotate(45deg);
-    }
-    &.open div span:nth-child(3) {
-      transform: rotate(-45deg);
-    }
-    &.open div span:nth-child(4) {
-      top: 7px;
-      width: 0;
-      left: 50%;
-    }
+const hamburger_trigger = css({
+  "display": "inline-block",
+  "width": "20px",
+  "height": "20px",
+  "position": "relative",
+  "margin": "16px",
+  "cursor": "pointer",
+  "opacity": "0",
+  "z-index": "4",
+  "-webkit-touch-callout": "none",
+  "@media screen and (min-width: 1024px)":{
+    "display": "none"
+  },
+  "&:checked ~ nav":{
+    "left": "0"
   }
-  display: none;`
+})
+
+const Hamburger = styled.label`
+display: block;
+position: absolute;
+top: 0;
+right: 0;
+height: 20px;
+width: 20px;
+margin: 16px;
+background: transparent;
+border: 0;
+cursor: pointer;
+z-index: 3;
+span {
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: black;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+span:nth-child(1) {
+  top: 0;
+}
+span:nth-child(2) {
+  top: 7px;
+}
+span:nth-child(3) {
+  top: 7px;
+}
+span:nth-child(4) {
+  top: 14px;
+}
+
+@media screen and (min-width: 1024px){
+  display: none;
+}
+`
