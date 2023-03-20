@@ -9,6 +9,7 @@ import Post from "../components/post"
 import Page from "../components/page"
 import HomePage from "../components/home-page"
 import ResponseIssue from "../components/response-issue"
+import SearchResults from "../components/search/search-results";
 import Error from "./error"
 import Header from "../components/header"
 import Footer from "../components/footer"
@@ -69,6 +70,7 @@ const Root = ({ state, actions }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
+          <SearchResults when={data.isSearch} />
           <Post when={data.isArticle} />
           <ResponseIssue when={data.isResponseIssue} />
           <Page when={data.isPage} />

@@ -1,11 +1,13 @@
 import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
-import search_icon from "/packages/spu-stories-frontity/src/images/icon-search-36px.svg"
+import SearchButton from "../components/search/search-button";
+import SearchModal from "../components/search/search-modal";
 import stories_logo from "/packages/spu-stories-frontity/src/images/spu-stories-logo.svg"
 import response_logo from "/packages/spu-stories-frontity/src/images/response-logo.svg"
 
 const Header = ({ state, actions}) => {
+  const menu_items = state.source.get('/menu/header-menu-2023/').items;
   return(
     <>
       <HeaderContainer>
@@ -16,7 +18,7 @@ const Header = ({ state, actions}) => {
                 <img src={response_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
               </Link>
               <SearchTool>
-                <img src={search_icon} alt="Search"/>
+                <SearchButton/>
               </SearchTool>
             </div>
             <div className="top-nav-left">
@@ -32,18 +34,16 @@ const Header = ({ state, actions}) => {
               <span></span>
             </Hamburger>
             <Menu>
-              <Link link="/">Campus News</Link>
-              <Link link="/">Alumni News</Link>
-              <Link link="/">Features</Link>
-              <Link link="/">Reflections</Link>
-              <Link link="/">Life at SPU</Link>
-              <Link link="/">Departments</Link>
+              {menu_items.map((item) => {
+                return(
+                  <Link link={item.url}>{item.title}</Link>
+                );
+              })}
             </Menu>
           </TopNav>
 
-
-
       </HeaderContainer>
+      <SearchModal />
     </>
   )
 }

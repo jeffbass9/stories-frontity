@@ -30,6 +30,11 @@ const settings = {
               "type": "articles",
               "endpoint": "articles",
               "archive": "/articles"
+            },
+            {
+              "type": "menus",
+              "endpoint": "menus",
+              "archive": "/menus"
             }
           ],
           "taxonomies": [
