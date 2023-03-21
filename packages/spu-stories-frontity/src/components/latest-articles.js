@@ -20,6 +20,8 @@ const LatestArticles = ({ state, actions }) => {
 
           if(state.source.attachment[post.featured_media]){
             featured_img = state.source.attachment[post.featured_media].source_url
+          }else{
+            featured_img = post.acf.article_full_hero
           }
 
           const formatted_date = dayjs(post.date).format("MMMM YYYY")
@@ -52,7 +54,7 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 margin: 0 auto;
-padding: 0 120px;
+padding: 0 1em;
 gap: 60px;
 width: 100%;
 max-width: 100%;
@@ -164,24 +166,24 @@ box-sizing: border-box;
 
 @media only screen and (min-width: 1280px) {
   .issue-article-container {
-    & .article-card:nth-child(4n+1) {
+    & .article-card:nth-of-type(4n+1) {
       flex: 0 0 25%;
       padding: 0 24px 0 0;
     }
 
-    & .article-card:nth-child(4n+2) {
+    & .article-card:nth-of-type(4n+2) {
       flex: 0 0 25%;
       padding: 0 24px;
       box-shadow: -0.5px 0 0 0 black;
     }
 
-    & .article-card:nth-child(4n+3) {
+    & .article-card:nth-of-type(4n+3) {
       flex: 0 0 25%;
       padding: 0 24px;
       box-shadow: -0.5px 0 0 0 black;
     }
 
-    & .article-card:nth-child(4n) {
+    & .article-card:nth-of-type(4n) {
       flex: 0 0 25%;
       padding: 0 0 0 24px;
       box-shadow: -0.5px 0 0 0 black;
@@ -193,12 +195,12 @@ box-sizing: border-box;
   padding: 0 32px;
   gap: 32px;
   .issue-article-container {
-    & .article-card:nth-child(2n+1) {
+    & .article-card:nth-of-type(2n+1) {
       flex: 0 0 50%;
       padding: 0 32px 0 0;
       margin-bottom: 16px;
     }
-    & .article-card:nth-child(2n) {
+    & .article-card:nth-of-type(2n) {
       flex: 0 0 50%;
       margin-bottom: 16px;
     }

@@ -10,30 +10,20 @@ import tiktok_icon from "/packages/spu-stories-frontity/src/images/icon--tiktok.
 import footer_background from "/packages/spu-stories-frontity/src/images/SPU_Main_LoRes_1210x580_acf_cropped.jpeg"
 
 const Footer = ({ state, actions }) => {
+  const menu_items = state.source.get('/menu/footer-menu-2023/').items;
   return(
     <>
       <FooterContainer>
           <div className="footer-wrapper">
               <h3>Response <span className="footer-magazine">Magazine</span></h3>
               <div className="footer-items-container">
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="manage-subscription.html">Manage your subscription</Link>
-                  </div>
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="contact.html">contact us</Link>
-                  </div>
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="about-us.html">about response</Link>
-                  </div>
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="manage-subscription.html">visit spu</Link>
-                  </div>
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="manage-subscription.html">become a student</Link>
-                  </div>
-                  <div className="footer-items-wrapper">
-                      <Link className="text" link="manage-subscription.html">submit a story idea</Link>
-                  </div>
+                {menu_items.map((item) => {
+                  return(
+                    <div key={item.ID} className="footer-items-wrapper">
+                      <Link link={item.url}>{item.title}</Link>
+                    </div>
+                  );
+                })}
               </div>
               <div className="social-media-container">
                   <img src={facebook_icon}/>
@@ -83,6 +73,7 @@ const FooterContainer = styled.footer`
     top: -4rem;
     gap: 18px;
     z-index: 2;
+    box-sizing: border-box;
     & h3 {
       font-family: "Sang Bleu Empire Bold", serif;
       font-weight: 700;
@@ -135,7 +126,7 @@ const FooterContainer = styled.footer`
         &:hover:not(.active) {
           border-top: 1.5px solid #872937;
         }
-        & .text {
+        & a {
           font-family: "Inter SemiBold", sans-serif;
           font-weight: 700;
           font-size: 25px;

@@ -8,13 +8,14 @@ import response_logo from "/packages/spu-stories-frontity/src/images/response-lo
 
 const Header = ({ state, actions}) => {
   const menu_items = state.source.get('/menu/header-menu-2023/').items;
+  
   return(
     <>
       <HeaderContainer>
 
           <TopNav>
             <div className="top-nav-right">
-              <Link link="https://stories.spu.edu/topic/response-magazine/">
+              <Link link="/about-response">
                 <img src={response_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
               </Link>
               <SearchTool>
@@ -22,7 +23,7 @@ const Header = ({ state, actions}) => {
               </SearchTool>
             </div>
             <div className="top-nav-left">
-              <Link link="spu-stories.html">
+              <Link link="/">
                 <img src={stories_logo} className="top-nav-left__logo" alt="SPU Stories"/>
               </Link>
             </div>
@@ -36,7 +37,7 @@ const Header = ({ state, actions}) => {
             <Menu>
               {menu_items.map((item) => {
                 return(
-                  <Link link={item.url}>{item.title}</Link>
+                  <Link key={item.ID} link={item.url}>{item.title}</Link>
                 );
               })}
             </Menu>
@@ -70,23 +71,23 @@ z-index: 9000;
   z-index: 100;
 }
 input:checked ~ nav {
-  left: 0;
+  left: -1px;
 }
 @media screen and (max-width: 1024px){
   display: inline-block;
 }
-input:checked + label span:nth-child(1) {
+input:checked + label span:nth-of-type(1) {
   top: 7px;
   width: 0;
   left: 50%;
 }
-input:checked + label span:nth-child(2) {
+input:checked + label span:nth-of-type(2) {
   transform: rotate(45deg);
 }
-input:checked + label span:nth-child(3) {
+input:checked + label span:nth-of-type(3) {
   transform: rotate(-45deg);
 }
-input:checked + label span:nth-child(4) {
+input:checked + label span:nth-of-type(4) {
   top: 7px;
   width: 0;
   left: 50%;
@@ -98,7 +99,7 @@ position: absolute;
 width: 100%;
 padding-top: 61px;
 list-style-type: none;
-left: -100%;
+left: -101%;
 -webkit-transition: left 0.3s ease;
 -o-transition: left 0.3s ease;
 transition: left 0.3s ease;
@@ -223,16 +224,16 @@ span {
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
 }
-span:nth-child(1) {
+span:nth-of-type(1) {
   top: 0;
 }
-span:nth-child(2) {
+span:nth-of-type(2) {
   top: 7px;
 }
-span:nth-child(3) {
+span:nth-of-type(3) {
   top: 7px;
 }
-span:nth-child(4) {
+span:nth-of-type(4) {
   top: 14px;
 }
 

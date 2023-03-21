@@ -1,6 +1,7 @@
 import React from "react"
 import { connect, styled } from "frontity"
 import Link from "@frontity/components/link"
+import parse from "html-react-parser"
 
 const List = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
@@ -11,7 +12,7 @@ const List = ({ state, actions }) => {
         const post = state.source[item.type][item.id]
         return (
           <Link key={item.id} link={post.link}>
-            {post.title.rendered}
+            {parse(post.title.rendered)}
             <br />
           </Link>
         )

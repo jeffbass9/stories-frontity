@@ -10,11 +10,17 @@ const Post = ({ state, libraries }) => {
   const author = state.source.author[post.author]
   const Html2React = libraries.html2react.Component
   const formattedDate = dayjs(post.date).format("MMMM DD YYYY")
+  let hero_img = hero_wide_placeholder
+  if(post.acf.article_full_hero){
+    hero_img = post.acf.article_full_hero
+  }else{
+    hero_img = state.source.attachment[post.featured_media].source_url
+  }
 
   return (
     <>
       <PostHeader>
-        <img src={hero_wide_placeholder}/>
+        <img src={hero_img}/>
       </PostHeader>
       <PostInfo>
         <h1>{parse(post.title.rendered)}</h1>

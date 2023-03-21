@@ -6,6 +6,9 @@ import response_placeholder from "/packages/spu-stories-frontity/src/images/resp
 import featured_article_placeholder from "/packages/spu-stories-frontity/src/images/featured-article-placeholder.jpg"
 
 const StoriesFeatured = ({ state, actions}) => {
+  //const data = state.source.get(state.source.homepage)
+  const data = state.source.get(state.router.link)
+
   return(
     <>
       <FeaturedContainer>

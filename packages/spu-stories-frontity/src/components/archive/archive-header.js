@@ -1,12 +1,12 @@
 import { styled } from "frontity";
 import SectionContainer from "../styles/section-container";
 
-const Header = ({ label, children, labelColor }) => {
+const Header = ({ label, children}) => {
   return (
     <ArchiveHeader>
       <ArchiveHeaderInner>
         <ArchiveTitle>
-          <ColoredText color={labelColor}>{label}: </ColoredText>
+          <ColoredText>{label}: </ColoredText>
           {children}
         </ArchiveTitle>
       </ArchiveHeaderInner>
@@ -41,6 +41,5 @@ const ArchiveTitle = styled.h1`
 `;
 
 const ColoredText = styled.span`
-  color: ${(props) => props.color};
   text-transform: capitalize;
 `;

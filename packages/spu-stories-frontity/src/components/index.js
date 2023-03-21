@@ -71,10 +71,10 @@ const Root = ({ state, actions }) => {
         <Switch>
           <Loading when={data.isFetching} />
           <SearchResults when={data.isSearch} />
+          <HomePage when={data.isHome} />
           <Post when={data.isArticle} />
           <ResponseIssue when={data.isResponseIssue} />
           <Page when={data.isPage} />
-          <HomePage when={data.isHome} />
           <List when={data.isArchive} />
           <Error when={data.isError} />
         </Switch>
@@ -89,14 +89,13 @@ export default connect(Root)
 
 const Main = styled.main`
   @media only screen and (max-width: 1024px) {
-    padding-bottom: 80rem;
     margin-top: 50px;
   }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  padding-bottom: 800px;
+  padding-bottom: 715px;
   width: 100%;
   margin-top: 108px;
 `

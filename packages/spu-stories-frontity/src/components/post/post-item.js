@@ -73,9 +73,6 @@ const PostItem = ({
        * If the want to show featured media in the
        * list of featured posts, we render the media.
        */}
-      {state.theme.featuredMedia.showOnArchive && showMedia && (
-        <FeaturedMedia id={item.featured_media} />
-      )}
 
       {/* If the post has an excerpt (short summary text), we render it */}
       {content && (

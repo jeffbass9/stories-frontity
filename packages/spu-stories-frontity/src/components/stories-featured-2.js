@@ -25,10 +25,7 @@ export default connect(StoriesFeatured2);
 const FeaturedContainer = styled.section`
 display: flex;
 flex-direction: column;
-justify-content: flex-end;
-align-items: flex-start;
-padding: 32px 120px;
-gap: 37px;
+justify-content: space-around;
 width: 100%;
 height: 512px;
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(${background_img});
@@ -41,9 +38,8 @@ position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0;
+  padding: 2em;
   gap: 36px;
-  position: absolute;
   & .title {
     padding-right: 128px;
     font-family: 'SangBleu Empire', serif;

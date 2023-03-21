@@ -9,7 +9,6 @@ import Post from "../post";
 const Archive = ({ state, showExcerpt, showMedia }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
-  const { primary } = state.theme.colors;
 
   // Whether the show the excerpt instead of the full content
   // If passed as prop, we'll respect that. Else, we'll use the theme settings
@@ -23,14 +22,14 @@ const Archive = ({ state, showExcerpt, showMedia }) => {
     <>
       {/* If the list is a taxonomy, we render a title. */}
       {data.isTaxonomy && (
-        <ArchiveHeader labelColor={primary} label={data.taxonomy}>
+        <ArchiveHeader label={data.taxonomy}>
           <span>{decode(state.source[data.taxonomy][data.id].name)}</span>
         </ArchiveHeader>
       )}
 
       {/* If the list is for a specific author, we render a title. */}
       {data.isAuthor && (
-        <ArchiveHeader labelColor={primary} label="Author">
+        <ArchiveHeader label="Author">
           <b>{decode(state.source.author[data.id].name)}</b>
         </ArchiveHeader>
       )}

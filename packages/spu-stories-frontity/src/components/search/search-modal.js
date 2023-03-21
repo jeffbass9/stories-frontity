@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useTransition, animated } from "react-spring";
 
 import search_icon from "/packages/spu-stories-frontity/src/images/icon-search-36px.svg"
+import close_icon from "/packages/spu-stories-frontity/src/images/icon--close.svg"
 import ScreenReaderText from "../../components/styles/screen-reader";
 import useFocusTrap from "../../components/hooks/use-trap-focus";
 import useFocusEffect from "../../components/hooks/use-focus-effect";
@@ -109,7 +110,7 @@ const SearchModal = ({ state, actions }) => {
 
                     <CloseButton onClick={closeSearchModal}>
                       <ScreenReaderText>Close search</ScreenReaderText>
-                      <img src={search_icon}/>
+                      <img src={close_icon}/>
                     </CloseButton>
                   </SectionInner>
                 </ModalInner>
@@ -184,9 +185,9 @@ const SearchInput = styled.input`
   border-radius: 0;
   color: inherit;
   display: block;
-  font-size: 2rem;
+  font-size: 1rem;
   letter-spacing: -0.0277em;
-  height: 8.4rem;
+  height: 4rem;
   margin: 0 0 0 -2rem;
   max-width: calc(100% + 2rem);
   padding: 0 0 0 2rem;
@@ -202,8 +203,7 @@ const SearchInput = styled.input`
 
   @media (min-width: 700px) {
     border: none;
-    font-size: 3.2rem;
-    height: 14rem;
+    font-size: 1.5rem;
   }
 
   &:focus {

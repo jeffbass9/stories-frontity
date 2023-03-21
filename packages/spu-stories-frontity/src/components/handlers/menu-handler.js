@@ -5,9 +5,7 @@ const menuHandler = {
   priority: 10,
   pattern: "/menu/:slug",
   func: async({link, params, state, libraries}) => {
-    console.log("PARAMS:", params);
     const { slug } = params;
-
     const response = await libraries.source.api.get({
       endpoint: `/menus/v1/menus/${slug}`
     });
