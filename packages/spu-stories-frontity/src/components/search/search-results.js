@@ -1,8 +1,12 @@
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity"
+import Link from "@frontity/components/link"
 import Archive from "../../components/archive";
 import ArchiveHeader from "../../components/archive/archive-header";
 import SectionContainer from "../../components/styles/section-container";
 import SearchForm from "./search-form";
+import ArticleList from "../../components/styles/article-list";
+import dayjs from "dayjs"
+import parse from "html-react-parser"
 
 const reverseFormat = (query) => query.replace("+", " ");
 
@@ -14,61 +18,47 @@ const SearchResults = ({ state }) => {
   // data.total → total pages that match the current path/url
   // data.searchQuery → query done to get search results
   const { total, searchQuery } = data;
+  const newQuery = reverseFormat(data.searchQuery);
   const isEmpty = data.total === 0;
 
   return (
     <>
-      <ArchiveHeader label="Search">
-        <span>{`“${reverseFormat(searchQuery)}”`}</span>
-        <IntroText size="thin">
-          {isEmpty ? (
-            <Text>
-              We could not find any results for your search. You can give it
-              another try through the search form below.
-            </Text>
-          ) : (
-            <Text>
-              We found {total} {total === 1 ? "result" : "results"} for your
-              search.
-            </Text>
-          )}
-        </IntroText>
-      </ArchiveHeader>
+      <ArticleList>
+        <div className="section-header">Search results for "{newQuery}"</div>
+        <div className="issue-article-container">
+          {data.items.map((item) => {
+            const post = state.source[item.type][item.id]
+            let featured_img = ""
+            let post_topic = ""
 
-      {isEmpty ? (
-        <SearchContainer size="thin">
-          <SearchForm />
-        </SearchContainer>
-      ) : (
-        <Archive showExcerpt={true} showMedia={false} />
-      )}
+            if(state.source.attachment[post.featured_media]){
+              featured_img = state.source.attachment[post.featured_media].source_url
+            }else{
+              featured_img = post.acf.article_full_hero
+            }
+
+            const formatted_date = dayjs(post.date).format("MMMM YYYY")
+
+            return (
+              <Link key={item.id} link={post.link} className="article-card">
+              <div className="article-image">
+              <img src={featured_img}/>
+              </div>
+                <div className="text">
+                    <div className="heading-content">
+                        <div className="category">{post_topic}</div>
+                        <div className="title">{parse(post.title.rendered)}</div>
+                    </div>
+                    <div className="date">{formatted_date}</div>
+                </div>
+                <br />
+              </Link>
+            )
+          })}
+        </div>
+      </ArticleList>
     </>
   );
 };
 
 export default connect(SearchResults);
-
-const IntroText = styled(SectionContainer)`
-  width: 100%;
-  margin-top: 2rem;
-  font-weight: initial;
-
-  @media (min-width: 700px) {
-    font-size: 2rem;
-    margin-top: 2.5rem;
-  }
-`;
-
-const Text = styled.p`
-  margin: 0 0 1em 0;
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const SearchContainer = styled(SectionContainer)`
-  padding-top: 5rem;
-  @media (min-width: 700px) {
-    padding-top: 6rem;
-  }
-`;
