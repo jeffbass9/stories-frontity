@@ -24,6 +24,7 @@
     "@frontity/tiny-router": "^1.4.4",
     "@frontity/twentytwenty-theme": "^1.3.3",
     "@frontity/wp-source": "^1.11.7",
+    "babel-preset-next": "^1.4.0",
     "dayjs": "^1.11.7",
     "frontity": "^1.17.2",
     "html-react-parser": "^3.0.12",

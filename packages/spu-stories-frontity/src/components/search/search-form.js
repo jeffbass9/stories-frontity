@@ -7,7 +7,6 @@ import Input from "../../components/styles/input";
 const SearchForm = ({ state, actions, libraries }) => {
   const parse = libraries.source.parse(state.router.link);
   const searchQuery = parse.query["s"];
-  const { primary } = state.theme.colors;
 
   const { closeSearchModal } = actions.theme;
   // Keep a reference to the input so we can grab it's value on form submission
@@ -45,7 +44,7 @@ const SearchForm = ({ state, actions, libraries }) => {
           ref={inputRef}
         />
       </Label>
-      <SearchButton bg={primary} type="submit">
+      <SearchButton type="submit">
         Search
       </SearchButton>
     </Form>

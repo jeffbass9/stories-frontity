@@ -2,12 +2,12 @@ import { styled } from "frontity";
 import Link from "@frontity/components/link";
 import ScreenReaderText from "../styles/screen-reader";
 
-const PostMetaItem = ({ icon: Icon, label, link, children }) => {
+const PostMetaItem = ({ label, link, children }) => {
   return (
     <ListItem>
       <MetaIcon>
         <ScreenReaderText>{label}</ScreenReaderText>
-        <Icon />
+
       </MetaIcon>
 
       <MetaText>

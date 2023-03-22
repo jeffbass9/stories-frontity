@@ -22,7 +22,10 @@ const spuStoriesFrontity = {
       beforeSSR: async({state, actions}) =>{
         await actions.source.fetch('/menu/header-menu-2023');
         await actions.source.fetch('/menu/footer-menu-2023');
-        await actions.source.fetch('/pages/46');
+        if (state.router.link === "/") {
+          // Stop the server-side rendering (SSR) until this is ready.
+          await actions.source.fetch("/homepage");
+        }
       },
       // State for the search modal on mobile
       openMobileMenu: ({ state }) => {

@@ -18,7 +18,8 @@ const settings = {
           "url": "https://stories.spu.edu",
           "postEndpoint": "articles",
           "params": {
-            "per_page": 8
+            "per_page": 8,
+            "type": ["article", "page", "response_issue"]
           },
           "postTypes": [
             {
