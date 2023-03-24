@@ -5,6 +5,7 @@ import SearchButton from "../components/search/search-button";
 import SearchModal from "../components/search/search-modal";
 import stories_logo from "/packages/spu-stories-frontity/src/images/spu-stories-logo.svg"
 import response_logo from "/packages/spu-stories-frontity/src/images/response-logo.svg"
+import spu_home_logo from "/packages/spu-stories-frontity/src/images/spu-home.svg"
 import HeaderContainer from "../components/styles/header-container"
 import Menu from "../components/styles/menu"
 import TopNav from "../components/styles/top-nav"
@@ -21,13 +22,18 @@ const ResponseHeader = ({ state, actions, props}) => {
           <TopNav>
             <div className="top-nav-right">
               <Link link="/about-response">
-                <img src={response_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
+                <img src={spu_home_logo} className="top-nav-right__response" alt="Response Magazine Logo"/>
               </Link>
               <SearchTool>
                 <SearchButton/>
               </SearchTool>
             </div>
-            <div className="top-nav-left">
+            <div className="top-nav-centered">
+              <Link link="/about-response">
+                Response
+              </Link>
+            </div>
+            <div className="top-nav-left stories-hide-on-mobile">
               <Link link="/">
                 <img src={stories_logo} className="top-nav-left__logo" alt="SPU Stories"/>
               </Link>

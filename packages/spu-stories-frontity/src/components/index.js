@@ -76,6 +76,9 @@ const Root = ({ state, actions }) => {
         p {
           margin: 0;
         }
+        #root{
+          overflow: hidden;
+        }
 
       `}
     />

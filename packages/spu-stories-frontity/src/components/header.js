@@ -13,8 +13,9 @@ const Header = ({ state, actions, props}) => {
   const data = state.source.get(state.router.link)
   const post = state.source[data.type][data.id]
   const response_department = post["response-department"]
+  const page_template = post.template
 
-  if(response_department){
+  if(response_department || page_template == "contact-page-template.php"){
     return(
       <ResponseHeader/>
     )
