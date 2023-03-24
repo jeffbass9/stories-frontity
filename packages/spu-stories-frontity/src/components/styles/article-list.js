@@ -82,7 +82,7 @@ box-sizing: border-box;
         font-size: 16px;
         line-height: 20px;
         text-transform: uppercase;
-        color: $color-gray;
+        color: #5C5C5C;
         width: 100%;
       }
 

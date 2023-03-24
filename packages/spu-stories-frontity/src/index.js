@@ -2,6 +2,10 @@ import Root from "./components"
 import link from "@frontity/html2react/processors/link";
 import menuHandler from "./components/handlers/menu-handler"
 import pagesHandler from "./components/handlers/pages-handler"
+import image from "@frontity/html2react/processors/image";
+import iframe from "@frontity/html2react/processors/iframe";
+import source from "./processors/source"
+import headingInView from "./processors/heading-in-view"
 
 const spuStoriesFrontity = {
   name: "spu-stories-frontity",
@@ -10,6 +14,7 @@ const spuStoriesFrontity = {
   },
   state: {
     theme: {
+      autoPrefetch: "in-view",
       isUrlVisible: false,
       isSearchModalOpen: false,
     },
@@ -44,7 +49,7 @@ const spuStoriesFrontity = {
   },
   libraries: {
     html2react: {
-      processors: [link]
+      processors: [image, iframe, link, source , headingInView]
     },
     source: {
       handlers: [menuHandler, pagesHandler],

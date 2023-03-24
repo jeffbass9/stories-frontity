@@ -52,6 +52,8 @@ const FooterContainer = styled.footer`
   display: block;
   height: auto;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   position: absolute;
   object-position: center bottom;
   bottom: 0;

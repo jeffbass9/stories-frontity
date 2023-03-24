@@ -1,5 +1,6 @@
 import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
+import useInView from "@frontity/hooks/use-in-view";
 import FontFaces from "../components/styles/font-faces"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
@@ -38,6 +39,10 @@ const Root = ({ state, actions }) => {
 
         a {
           vertical-align: baseline;
+          color: #651D32;
+          &:hover{
+            color: #872937;
+          }
         }
 
         a:active, a:hover, a:link, a:visited {
@@ -64,6 +69,7 @@ const Root = ({ state, actions }) => {
         p {
           margin: 0;
         }
+
       `}
     />
       <Header/>
@@ -92,12 +98,12 @@ const Main = styled.main`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  padding-bottom: 715px;
+  padding-bottom: 70rem;
   margin-top: 50px;
   width: 100%;
 
   @media screen and (min-width: 1024px){
-    margin-top: 120px;
+    margin-top: 116px;
     padding-bottom: 900px;
   }
 `
