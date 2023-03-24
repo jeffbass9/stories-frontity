@@ -5,6 +5,8 @@ import ArchiveHeader from "../../components/archive/archive-header";
 import SectionContainer from "../../components/styles/section-container";
 import SearchForm from "./search-form";
 import ArticleList from "../../components/styles/article-list";
+import Header from "../../components/header"
+import Footer from "../../components/footer"
 import dayjs from "dayjs"
 import parse from "html-react-parser"
 

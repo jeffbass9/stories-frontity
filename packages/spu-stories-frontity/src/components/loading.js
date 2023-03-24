@@ -1,6 +1,7 @@
 import React from "react"
 import { styled, keyframes } from "frontity"
 
+
 const Loading = () => <Spinner />
 
 export default Loading

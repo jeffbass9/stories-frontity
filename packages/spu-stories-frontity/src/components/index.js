@@ -2,6 +2,7 @@ import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import useInView from "@frontity/hooks/use-in-view";
 import FontFaces from "../components/styles/font-faces"
+import ImportedImages from "../components/styles/imported-images"
 import Link from "@frontity/components/link"
 import Switch from "@frontity/components/switch"
 import Loading from "../components/loading"
@@ -14,6 +15,7 @@ import SearchResults from "../components/search/search-results";
 import Error from "./error"
 import Header from "../components/header"
 import Footer from "../components/footer"
+
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
@@ -55,6 +57,11 @@ const Root = ({ state, actions }) => {
           height: 48px;
           width: 100%;
         }
+        iframe{
+          height: 2000px;
+          overflow: hidden;
+          border: none;
+        }
 
         label {
           font-family: "Inter", sans-serif;
@@ -73,18 +80,18 @@ const Root = ({ state, actions }) => {
       `}
     />
       <Header/>
-      <Main>
-        <Switch>
-          <SearchResults when={data.isSearch} />
-          <Loading when={data.isFetching} />
-          <HomePage when={data.isHome} />
-          <Post when={data.isArticle} />
-          <ResponseIssue when={data.isResponseIssue} />
-          <Page when={data.isPage} />
-          <List when={data.isArchive} />
-          <Error when={data.isError} />
-        </Switch>
-      </Main>
+        <Main>
+          <Switch>
+            <SearchResults when={data.isSearch} />
+            <Loading when={data.isFetching} />
+            <HomePage when={data.isHome} />
+            <Post when={data.isArticle} />
+            <ResponseIssue when={data.isResponseIssue} />
+            <Page when={data.isPage} />
+            <List when={data.isArchive} />
+            <Error when={data.isError} />
+          </Switch>
+        </Main>
       <Footer/>
     </>
   )

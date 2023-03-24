@@ -23,7 +23,7 @@ const settings = {
           },
           "postTypes": [
             {
-              "type": "response-issues",
+              "type": "response_issues",
               "endpoint": "response-issues",
               "archive": "/response-issues"
             },
@@ -40,7 +40,7 @@ const settings = {
           ],
           "taxonomies": [
             {
-              "taxonomy": "response-department",
+              "taxonomy": "response_department",
               "endpoint": "response-departments",
               "postTypeEndpoint": "response-issues"
             },

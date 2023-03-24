@@ -2,6 +2,8 @@ import React from "react"
 import StoriesFeatured from "../components/stories-featured"
 import LatestArticles from "../components/latest-articles"
 import StoriesFeatured2 from "../components/stories-featured-2"
+import Header from "../components/header"
+import Footer from "../components/footer"
 import { connect, Head } from "frontity"
 
 const HomePage = ({ state, libraries }) => {
@@ -9,11 +11,15 @@ const HomePage = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component
 
   return (
-    <div>
-      <StoriesFeatured/>
-      <LatestArticles/>
-      <StoriesFeatured2/>
-    </div>
+    <>
+      <Header/>
+        <div>
+          <StoriesFeatured/>
+          <LatestArticles/>
+          <StoriesFeatured2/>
+        </div>
+      <Footer/>
+    </>
   )
 }
 

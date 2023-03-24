@@ -5,6 +5,8 @@ import hero_wide_placeholder from "../images/karen-springs-hero_1210x580_acf_cro
 import parse from "html-react-parser"
 import PostContent from "../components/styles/post-content"
 import ContactForm from "../components/styles/contact-form"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)

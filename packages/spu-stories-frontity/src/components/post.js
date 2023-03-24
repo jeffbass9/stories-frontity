@@ -1,4 +1,5 @@
 import React from "react"
+import Switch from "@frontity/components/switch"
 import { connect, styled, css } from "frontity"
 import dayjs from "dayjs"
 import hero_wide_placeholder from "../images/karen-springs-hero_1210x580_acf_cropped.jpg"
@@ -6,6 +7,8 @@ import parse from "html-react-parser"
 import PostHeader from "../components/styles/post-header"
 import PostContent from "../components/styles/post-content"
 import PostInfo from "../components/styles/post-info"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
@@ -14,6 +17,7 @@ const Post = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component
   const formattedDate = dayjs(post.date).format("MMMM DD YYYY")
   let hero_img = hero_wide_placeholder
+
   if(post.acf.article_full_hero){
     hero_img = post.acf.article_full_hero
   }else{
