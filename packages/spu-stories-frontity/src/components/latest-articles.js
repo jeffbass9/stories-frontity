@@ -10,11 +10,16 @@ import ArticleList from "../components/styles/article-list"
 const LatestArticles = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
 
+  const articles = []
+  for(let i = 0; i<8; i++){
+    articles.push(data.items[i])
+  }
+
   return (
     <ArticleList>
       <div className="section-header">Latest Articles</div>
       <div className="issue-article-container">
-        {data.items.map((item) => {
+        {articles.map((item) => {
           const post = state.source[item.type][item.id]
           let featured_img = article_placeholder
           let post_topic = ""

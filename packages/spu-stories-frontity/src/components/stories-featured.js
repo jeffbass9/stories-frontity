@@ -1,6 +1,9 @@
 import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
+import dayjs from "dayjs"
+import returnFeaturedImage from "../services/returnFeaturedImage"
+import parse from "html-react-parser"
 import article_placeholder from "/packages/spu-stories-frontity/src/images/article-placeholder.jpeg"
 import response_placeholder from "/packages/spu-stories-frontity/src/images/response-cover-placeholder.jpg"
 import featured_article_placeholder from "/packages/spu-stories-frontity/src/images/featured-article-placeholder.jpg"
@@ -8,57 +11,73 @@ import featured_article_placeholder from "/packages/spu-stories-frontity/src/ima
 const StoriesFeatured = ({ state, actions}) => {
 
   const homepage = state.source.page[46]
+  const homepage_featured = homepage.acf.featured_article.ID
+  const featured_post = state.source.article[homepage_featured]
+  const featured_formatted_date = dayjs(featured_post.date).format("MMMM D, YYYY")
+  const featured_author = state.source.author[featured_post.author]
+  let featured_img
+
+  if(featured_post.acf.article_full_hero){
+    featured_img = featured_post.acf.article_full_hero
+  }else{
+    featured_img = state.source.attachment[featured_post.featured_media].source_url
+  }
+
+  const popular_articles = homepage.acf.popular_articles
+
 
   return(
     <>
       <FeaturedContainer>
         <div>
-            <div className="stories-featured-img"><img src={featured_article_placeholder}/></div>
+            <div className="stories-featured-img">
+              <img src={featured_img}/>
+            </div>
             <div className="featured-article">
                 <a href="#">
-                    <h1>Designing a fair-trade fashion company</h1>
-                    <h4>What was it like to walk down the runway as a “designer to watch” at New York Fashion Week (NYFW) in September?</h4>
-                    <p>By Lee Fleisher - October 27, 2022</p>
+                  <h1>{parse(featured_post.title.rendered)}</h1>
+                  {parse(featured_post.excerpt.rendered)}
+                  <p>By  - {featured_formatted_date}</p>
                 </a>
             </div>
         </div>
+
+
         <div>
             <div className="popular-article-sec">
                 <div className="popular-header">
                     <div className="featured-section-header">Popular Articles</div>
-                    <a className="popular-view-more" href="#">View More</a>
+                    <Link link="/about-response" className="popular-view-more">View More</Link>
                 </div>
                 <div className="popular-column">
-                    <a className="popular-article-card" href="#">
-                        <div><img src={article_placeholder}/></div>
-                        <div className="text">
-                            <div className="heading-content">
-                                <div className="category">How To</div>
-                                <div className="title">FAQ: What do I need to know about transferring to SPU?</div>
-                            </div>
-                            <div className="date">February 2023</div>
-                        </div>
-                    </a>
-                    <a className="popular-article-card" href="#">
-                        <div><img src={article_placeholder}/></div>
-                        <div className="text">
-                            <div className="heading-content">
-                                <div className="category">How To</div>
-                                <div className="title">How to pay for tuition: a monthly breakdown</div>
-                            </div>
-                            <div className="date">February 2023</div>
-                        </div>
-                    </a>
-                    <a className="popular-article-card" href="#">
-                        <div><img src={article_placeholder}/></div>
-                        <div className="text">
-                            <div className="heading-content">
-                                <div className="category">Student Life</div>
-                                <div className="title">Three outdoor adventures in the Seattle area</div>
-                            </div>
-                            <div className="date">January 2023</div>
-                        </div>
-                    </a>
+                    {popular_articles.map((item) => {
+                      let featured_img = ""
+                      let post_topic = ""
+                      const formatted_date = dayjs(item.post_date).format("MMMM YYYY")
+                      const post = state.source[item.post_type][item.ID]
+
+                      if(state.source.attachment[post.featured_media]){
+                        featured_img = state.source.attachment[post.featured_media].source_url
+                      }else{
+                        featured_img = post.acf.article_full_hero
+                      }
+
+                      return (
+                        <Link key={item.ID} link={"/about"} className="popular-article-card">
+                          <div className="article-image">
+                            <img src={featured_img}/>
+                          </div>
+                          <div className="text">
+                              <div className="heading-content">
+                                  <div className="category"></div>
+                                  <div className="title">{item.post_title}</div>
+                              </div>
+                              <div className="date">{formatted_date}</div>
+                          </div>
+                          <br />
+                        </Link>
+                      )
+                    })}
                 </div>
             </div>
             <div className="response-latest-sec">
@@ -71,6 +90,7 @@ const StoriesFeatured = ({ state, actions}) => {
                     </div>
                 </a>
             </div>
+
         </div>
     </FeaturedContainer>
     </>
@@ -147,20 +167,19 @@ grid-template-columns: 3fr 3fr;
         margin-top: 0;
       }
     }
-    h4 {
+    p:nth-of-type(1) {
       font-family: "Sang Bleu Empire", serif;
       font-weight: 400;
       font-size: 20px;
       line-height: 37px;
       display: flex;
       align-items: center;
-      text-transform: capitalize;
       color: #69757A;
       @media only screen and (max-width: 1024px) {
         font-size: 24px;
       }
     }
-    p {
+    p:nth-of-type(2) {
       font-family: "Inter SemiBold", sans-serif;
       font-weight: 700;
       font-size: 16px;
