@@ -9,6 +9,8 @@ import PostContent from "../components/styles/post-content"
 import PostInfo from "../components/styles/post-info"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ResponseHeader from "../components/response/response-header"
+import ResponseFooter from "../components/response/response-footer"
 
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
@@ -17,6 +19,9 @@ const Post = ({ state, libraries }) => {
   const Html2React = libraries.html2react.Component
   const formattedDate = dayjs(post.date).format("MMMM DD YYYY")
   let hero_img = hero_wide_placeholder
+  let response_department = post["response-department"]
+  let page_template = post.template
+  let header = <StoriesHeader/>
 
   if(post.acf.article_full_hero){
     hero_img = post.acf.article_full_hero
@@ -24,22 +29,32 @@ const Post = ({ state, libraries }) => {
     hero_img = state.source.attachment[post.featured_media].source_url
   }
 
+  if(response_department){
+    header = <ResponseHeader/>
+    footer = <ResponseFooter/>
+  }else{
+    header = <StoriesHeader/>
+    footer = <StoriesFooter/>
+  }
+
   return (
     <>
-      <PostHeader>
-        <img src={hero_img}/>
-        <PostInfo>
-          <h1>{parse(post.title.rendered)}</h1>
-          <h2>{author}</h2>
-          <h3>{formattedDate}</h3>
-        </PostInfo>
-      </PostHeader>
+      {header}
+        <PostHeader>
+          <img src={hero_img}/>
+          <PostInfo>
+            <h1>{parse(post.title.rendered)}</h1>
+            <h2>{author}</h2>
+            <h3>{formattedDate}</h3>
+          </PostInfo>
+        </PostHeader>
 
-      <PostContent>
-        <div className="post-content__inner">
-          <Html2React html={post.content.rendered} />
-        </div>
-      </PostContent>
+        <PostContent>
+          <div className="post-content__inner">
+            <Html2React html={post.content.rendered} />
+          </div>
+        </PostContent>
+      {footer}
     </>
   )
 }

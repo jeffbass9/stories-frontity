@@ -17,22 +17,26 @@ const Page = ({ state, libraries }) => {
   if(page_template == "contact-page-template.php"){
     return (
       <>
-        <ContactForm>
-          <div class="contact-form__content">
-            <h1>{parse(page.title.rendered)}</h1>
-            <Html2React html={page.content.rendered} />
-          </div>
-        </ContactForm>
+        <Header/>
+          <ContactForm>
+            <div class="contact-form__content">
+              <h1>{parse(page.title.rendered)}</h1>
+              <Html2React html={page.content.rendered} />
+            </div>
+          </ContactForm>
+        <Footer/>
       </>
     )
   }else{
 
     return (
       <>
-        <PostContent>
-          <h1>{parse(page.title.rendered)}</h1>
-          <Html2React html={page.content.rendered} />
-        </PostContent>
+        <Header/>
+          <PostContent>
+            <h1>{parse(page.title.rendered)}</h1>
+            <Html2React html={page.content.rendered} />
+          </PostContent>
+        <Footer/>
       </>
     )
 

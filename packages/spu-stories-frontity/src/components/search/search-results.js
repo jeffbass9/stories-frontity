@@ -25,40 +25,42 @@ const SearchResults = ({ state }) => {
 
   return (
     <>
-      <ArticleList>
-        <div className="section-header">Search results for "{newQuery}"</div>
-        <div className="issue-article-container">
-          {data.items.map((item) => {
-            const post = state.source[item.type][item.id]
-            let featured_img = ""
-            let post_topic = ""
+    <Header/>
+        <ArticleList>
+          <div className="section-header">Search results for "{newQuery}"</div>
+          <div className="issue-article-container">
+            {data.items.map((item) => {
+              const post = state.source[item.type][item.id]
+              let featured_img = ""
+              let post_topic = ""
 
-            if(state.source.attachment[post.featured_media]){
-              featured_img = state.source.attachment[post.featured_media].source_url
-            }else{
-              featured_img = post.acf.article_full_hero
-            }
+              if(state.source.attachment[post.featured_media]){
+                featured_img = state.source.attachment[post.featured_media].source_url
+              }else{
+                featured_img = post.acf.article_full_hero
+              }
 
-            const formatted_date = dayjs(post.date).format("MMMM YYYY")
+              const formatted_date = dayjs(post.date).format("MMMM YYYY")
 
-            return (
-              <Link key={item.id} link={post.link} className="article-card">
-              <div className="article-image">
-              <img src={featured_img}/>
-              </div>
-                <div className="text">
-                    <div className="heading-content">
-                        <div className="category">{post_topic}</div>
-                        <div className="title">{parse(post.title.rendered)}</div>
-                    </div>
-                    <div className="date">{formatted_date}</div>
+              return (
+                <Link key={item.id} link={post.link} className="article-card">
+                <div className="article-image">
+                <img src={featured_img}/>
                 </div>
-                <br />
-              </Link>
-            )
-          })}
-        </div>
-      </ArticleList>
+                  <div className="text">
+                      <div className="heading-content">
+                          <div className="category">{post_topic}</div>
+                          <div className="title">{parse(post.title.rendered)}</div>
+                      </div>
+                      <div className="date">{formatted_date}</div>
+                  </div>
+                  <br />
+                </Link>
+              )
+            })}
+          </div>
+        </ArticleList>
+      <Footer/>
     </>
   );
 };

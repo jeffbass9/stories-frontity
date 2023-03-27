@@ -8,7 +8,7 @@ margin: 0 auto;
 padding: 0 1em;
 gap: 60px;
 width: 100%;
-max-width: 100%;
+max-width: 1512px;
 box-sizing: border-box;
 & .section-header {
   font-family: 'Inter Bold', sans-serif;

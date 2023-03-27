@@ -10,11 +10,9 @@ import List from "../components/list"
 import Post from "../components/post"
 import Page from "../components/page"
 import HomePage from "../components/home-page"
-import ResponseIssue from "../components/response-issue"
+import ResponseIssue from "../components/response/response-issue"
 import SearchResults from "../components/search/search-results";
 import Error from "./error"
-import Header from "../components/header"
-import Footer from "../components/footer"
 
 
 const Root = ({ state, actions }) => {
@@ -82,7 +80,6 @@ const Root = ({ state, actions }) => {
 
       `}
     />
-      <Header/>
         <Main>
           <Switch>
             <SearchResults when={data.isSearch} />
@@ -95,7 +92,6 @@ const Root = ({ state, actions }) => {
             <Error when={data.isError} />
           </Switch>
         </Main>
-      <Footer/>
     </>
   )
 }

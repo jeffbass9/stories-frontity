@@ -2,7 +2,7 @@ import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
 import dayjs from "dayjs"
-import returnFeaturedImage from "../services/returnFeaturedImage"
+import returnFeaturedImage from "../../services/returnFeaturedImage"
 import parse from "html-react-parser"
 import article_placeholder from "/packages/spu-stories-frontity/src/images/article-placeholder.jpeg"
 import response_placeholder from "/packages/spu-stories-frontity/src/images/response-cover-placeholder.jpg"
@@ -82,13 +82,13 @@ const StoriesFeatured = ({ state, actions}) => {
             </div>
             <div className="response-latest-sec">
                 <div className="featured-section-header">Response Latest Issue</div>
-                <a className="response-latest-row" href="#">
-                    <div className="response-latest-cover"><img src={response_placeholder}/></div>
-                    <div className="text">
-                        <div className="header">Faith & Work</div>
-                        <div className="season">Fall/Winter 2022</div>
-                    </div>
-                </a>
+                <Link link="/response-issues/faith-work/" className="response-latest-row">
+                  <div className="response-latest-cover"><img src={response_placeholder}/></div>
+                  <div className="text">
+                      <div className="header">Faith & Work</div>
+                      <div className="season">Fall/Winter 2022</div>
+                  </div>
+                </Link>
             </div>
 
         </div>

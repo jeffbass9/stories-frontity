@@ -1,8 +1,17 @@
 import React from "react"
 import { styled, keyframes } from "frontity"
+import Header from "../components/header"
+import Footer from "../components/footer"
 
-
-const Loading = () => <Spinner />
+const Loading = () => {
+  return (
+    <>
+      <Header/>
+        <Spinner />
+      <Footer/>
+      </>
+    )
+}
 
 export default Loading
 

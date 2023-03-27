@@ -8,7 +8,7 @@ import youtube_icon from "/packages/spu-stories-frontity/src/images/icon--youtub
 import linkedin_icon from "/packages/spu-stories-frontity/src/images/icon--linkedin.svg"
 import tiktok_icon from "/packages/spu-stories-frontity/src/images/icon--tiktok.svg"
 import footer_background from "/packages/spu-stories-frontity/src/images/SPU_Main_LoRes_1210x580_acf_cropped.jpeg"
-import FooterContainer from "../components/styles/footer-container"
+import FooterContainer from "../../components/styles/footer-container"
 
 const StoriesFooter = ({ state, actions, props }) => {
   const footer_items = state.source.get('/menu/footer-menu-2023/').items;

@@ -1,7 +1,8 @@
 import React from "react"
-import ResponseFeatured from "../components/response-featured"
-import ResponseHeader from "../components/response-header"
-import ResponseFooter from "../components/response-footer"
+import ResponseFeatured from "../../components/response/response-featured"
+import ResponseHeader from "../../components/response/response-header"
+import ResponseFooter from "../../components/response/response-footer"
+import RecentIssues from "../../components/response/recent-issues"
 import { connect, Head } from "frontity"
 
 const ResponseIssue = ({ state, libraries }) => {
@@ -14,9 +15,8 @@ const ResponseIssue = ({ state, libraries }) => {
     <>
       <ResponseHeader/>
         <div>
-          <h2>{page.title.rendered}</h2>
           <ResponseFeatured/>
-          <Html2React html={page.content.rendered} />
+          <RecentIssues/>
         </div>
       <ResponseFooter/>
     </>

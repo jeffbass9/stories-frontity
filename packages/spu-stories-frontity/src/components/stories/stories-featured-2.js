@@ -1,7 +1,8 @@
 import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
-import background_img from "../images/karen-springs-hero_1210x580_acf_cropped.jpg"
+import SearchModal from "../../components/search/search-modal";
+import background_img from "../../images/karen-springs-hero_1210x580_acf_cropped.jpg"
 
 const StoriesFeatured2 = ({ state, actions}) => {
   return(

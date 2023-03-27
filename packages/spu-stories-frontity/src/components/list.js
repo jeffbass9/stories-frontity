@@ -14,7 +14,7 @@ const List = ({ state, actions }) => {
 
   return (
     <>
-
+      <Header/>
         <ArticleList>
           <div className="section-header">Latest Articles</div>
             <div className="issue-article-container">
@@ -69,7 +69,7 @@ const List = ({ state, actions }) => {
                 </PrevNextNav>
           </div>
         </ArticleList>
-      
+      <Footer/>
     </>
   )
 }
