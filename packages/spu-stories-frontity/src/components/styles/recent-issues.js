@@ -9,9 +9,9 @@ margin: 0 auto;
 padding: 32px 120px;
 gap: 60px;
 width: 100%;
+box-sizing: border-box;
 & .section-header{
   color: white;
-  border-bottom-color: white;
   font-family: "Inter Bold", sans-serif;
   font-weight: 700;
   font-size: 20px;
@@ -19,8 +19,27 @@ width: 100%;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   width: 100%;
+  border-bottom: 7px solid white;
+}
+& .view-more-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.05em;
+  text-transform: capitalize;
+  color: white;
 }
 & .issue-article-container{
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  align-items: stretch;
   & .issue-card {
     position: relative;
     width: 100%;
@@ -29,6 +48,7 @@ width: 100%;
     flex-direction: column;
     gap: 24px;
     margin-bottom: 48px;
+    box-sizing: border-box;
     &:nth-of-type(6n+1){
       @media screen and (min-width: 1280px){
         flex: 0 0 16.66%;

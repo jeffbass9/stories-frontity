@@ -2,6 +2,7 @@ import Root from "./components"
 import link from "@frontity/html2react/processors/link";
 import menuHandler from "./components/handlers/menu-handler";
 import pagesHandler from "./components/handlers/pages-handler";
+import homepageHandler from "./components/handlers/homepage-handler";
 import responseIssueHandler from "./components/handlers/response-issue-handler";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
@@ -30,11 +31,8 @@ const spuStoriesFrontity = {
         await actions.source.fetch('/menu/footer-menu-2023');
         await actions.source.fetch('/menu/response-header-menu-2023');
         await actions.source.fetch('/menu/response-footer-menu-2023');
-        await actions.source.fetch('/response-issues');
-        if (state.router.link === "/") {
-          // Stop the server-side rendering (SSR) until this is ready.
-          await actions.source.fetch("/homepage");
-        }
+        await actions.source.fetch('/response-issues/');
+        await actions.source.fetch("/homepage");
       },
       // State for the search modal on mobile
       openMobileMenu: ({ state }) => {
@@ -53,10 +51,10 @@ const spuStoriesFrontity = {
   },
   libraries: {
     html2react: {
-      processors: [image, iframe, link, source , headingInView]
+      processors: [image, iframe, link, source, headingInView]
     },
     source: {
-      handlers: [menuHandler, pagesHandler, responseIssueHandler],
+      handlers: [menuHandler, pagesHandler],
     }
   }
 }

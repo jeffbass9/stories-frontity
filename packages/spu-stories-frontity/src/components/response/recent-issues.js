@@ -11,19 +11,25 @@ const RecentIssues = ({ state, actions }) => {
 
   const data = state.source.get(state.router.link)
   const issue = state.source.response_issue[data.id]
-  const issues = state.source.response_issue
-  console.log(issues)
+  const issues = state.source.get("/response-issues").items
+  let issue_array = []
+
+  for(let i = 0; i < 6; i++){
+    issue_array.push(issues[i]);
+  }
+
   return (
     <RecentIssuesWrapper>
       <div className="section-header">Recent Issues</div>
       <div className="issue-article-container">
-        {issues.map((item) => {
-            let featured_img = item.acf.response_cover
-            let quarter = item.acf.response_issue_number
-            let title = item.title.rendered
+        {issue_array.map((item) => {
+            let current_post = state.source.response_issue[item.id]
+            let featured_img = current_post.acf.response_cover
+            let quarter = current_post.acf.response_issue_number
+            let title = current_post.title.rendered
 
             return (
-              <Link key={item.id} link={item.link} className="issue-card">
+              <Link key={current_post.id} link={current_post.link} className="issue-card">
                 <div className="issue-image">
                   <img src={featured_img}/>
                 </div>
@@ -36,7 +42,7 @@ const RecentIssues = ({ state, actions }) => {
             })
         }
       </div>
-      <Link link="/response-issues">
+      <Link link="/response-issues" className="view-more-button">
         View More
       </Link>
     </RecentIssuesWrapper>

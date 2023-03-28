@@ -1,27 +1,36 @@
 import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
+import dayjs from "dayjs"
+import parse from "html-react-parser"
+import featured_img from "/packages/spu-stories-frontity/src/images/MIKE-11-scaled_1210x580_acf_cropped.jpeg"
 
-const ResponseFeatured = ({ state, actions}) => {
+
+const ResponseCoverStory = ({ state, actions}) => {
+
+  const data = state.source.get(state.router.link)
+  const issue = state.source[data.type][data.id]
+
+
   return(
     <>
-      <FeaturedContainer>
+      <CoverStory>
         <div>
             <a href="articles/in-all-things.html">
-                <h1>In all things, charity</h1>
-                <h4>How can we navigate difficult conversations? A Q&A with Associate Professor of Philosophy Matthew Benton</h4>
-                <p>By Shelly Ngo - June 23, 2022</p>
+            <h1>In all things, charity</h1>
+            <h4>How can we navigate difficult conversations? A Q&A with Associate Professor of Philosophy Matthew Benton</h4>
+            <p>By Shelly Ngo - June 23, 2022</p>
             </a>
         </div>
         <div className="featured-img"></div>
-      </FeaturedContainer>
+      </CoverStory>
     </>
   )
 }
 
-export default connect(ResponseFeatured);
+export default connect(ResponseCoverStory);
 
-const FeaturedContainer = styled.section`
+const CoverStory = styled.section`
 position: relative;
 display: grid;
 grid-template-columns: 3fr 3fr;
@@ -43,6 +52,7 @@ grid-template-columns: 3fr 3fr;
   border-right: 1px solid black;
   padding: 30px 120px;
   width: 100%;
+  box-sizing: border-box;
   @media only screen and (max-width: 620px) {
     display: flex;
     flex-direction: column;
@@ -104,7 +114,7 @@ grid-template-columns: 3fr 3fr;
   border-bottom: 1px solid black;
 }
 & .featured-img {
-  background-image: url("../images/MIKE-11-scaled_1210x580_acf_cropped.jpeg");
+  background-image: url(${featured_img});
   padding-bottom: 100%;
   background-position: center;
   background-repeat: no-repeat;

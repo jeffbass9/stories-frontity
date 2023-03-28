@@ -8,8 +8,11 @@ width: 100%;
 .post-content__inner{
   width: 100%;
   max-width: 1080px;
-  margin: 0 auto;
+  margin: 3em auto 0 auto;
   padding: 0 1em;
+  span{
+    display: none;
+  }
 }
 @media screen and (min-width: 620px){
   line-height: 36px;
@@ -22,6 +25,9 @@ p {
   @media screen and (min-width: 620px){
     font-size: 22px;
   }
+}
+h1{
+  text-align: left;
 }
 h3{
   max-width: 1080px;

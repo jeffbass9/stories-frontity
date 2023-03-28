@@ -16,20 +16,20 @@ const settings = {
       "state": {
         "source": {
           "url": "https://stories.spu.edu",
-          "postEndpoint": "articles?_embed",
+          "postEndpoint": "articles",
           "params": {
             "per_page": 20,
-            "type": ["article", "page", "response_issue"]
+            "type": ["article", "page", "response_issue", "author"]
           },
           "postTypes": [
             {
-              "type": "response_issue",
+              "type": "response_issues",
               "endpoint": "response-issues",
               "archive": "/response-issues"
             },
             {
               "type": "articles",
-              "endpoint": "articles?_embed",
+              "endpoint": "articles",
               "archive": "/articles"
             },
             {
@@ -58,7 +58,14 @@ const settings = {
         }
       }
     },
-    "@frontity/tiny-router",
+    {
+      "name": "@frontity/tiny-router",
+      "state": {
+        "router": {
+          "autoFetch": true
+        }
+      }
+    },
     "@frontity/html2react",
     "@aamodtgroup/frontity-contact-form-7"
   ]

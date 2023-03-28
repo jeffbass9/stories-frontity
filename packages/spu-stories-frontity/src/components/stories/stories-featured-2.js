@@ -1,21 +1,29 @@
 import React from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
-import SearchModal from "../../components/search/search-modal";
 import background_img from "../../images/karen-springs-hero_1210x580_acf_cropped.jpg"
+import parse from "html-react-parser"
+import dayjs from "dayjs"
 
 const StoriesFeatured2 = ({ state, actions}) => {
+
+  const homepage = state.source.page[46]
+  const homepage_featured_2 = homepage.acf.featured_article_2.ID
+  const featured_post = state.source.article[homepage_featured_2]
+  const formatted_date = dayjs(featured_post.date).format("MMMM YYYY")
+  const featured_author = state.source.author[featured_post.post_author]
+  
+
+
   return(
     <>
       <FeaturedContainer>
-        <a className="second-featured-article" href="#">
+        <Link link={featured_post.link} className="second-featured-article">
            <div className="description">
-               <div className="title">
-                Answering God’s call to serve Ukrainian orphans
-                </div>
-               <div className="date">December 2022</div>
+               <div className="title">{parse(featured_post.title.rendered)}</div>
+               <div className="date">{formatted_date}</div>
            </div>
-        </a>
+        </Link>
       </FeaturedContainer>
     </>
   )

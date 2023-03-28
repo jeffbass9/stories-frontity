@@ -6,7 +6,7 @@ import Header from "../components/header"
 import Footer from "../components/footer"
 import { connect, Head } from "frontity"
 
-const HomePage = ({ state, libraries }) => {
+const HomePage = ({ state, actions, libraries }) => {
 
   const Html2React = libraries.html2react.Component
 

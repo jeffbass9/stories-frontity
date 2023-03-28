@@ -7,6 +7,8 @@ import PostContent from "../components/styles/post-content"
 import ContactForm from "../components/styles/contact-form"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ResponseHeader from "../components/response/response-header"
+import ResponseFooter from "../components/response/response-footer"
 
 const Page = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
@@ -17,14 +19,14 @@ const Page = ({ state, libraries }) => {
   if(page_template == "contact-page-template.php"){
     return (
       <>
-        <Header/>
+        <ResponseHeader/>
           <ContactForm>
-            <div class="contact-form__content">
+            <div className="contact-form__content">
               <h1>{parse(page.title.rendered)}</h1>
               <Html2React html={page.content.rendered} />
             </div>
           </ContactForm>
-        <Footer/>
+        <ResponseFooter/>
       </>
     )
   }else{
@@ -33,8 +35,10 @@ const Page = ({ state, libraries }) => {
       <>
         <Header/>
           <PostContent>
-            <h1>{parse(page.title.rendered)}</h1>
-            <Html2React html={page.content.rendered} />
+            <div className="post-content__inner">
+              <h1>{parse(page.title.rendered)}</h1>
+              <Html2React html={page.content.rendered} />
+            </div>
           </PostContent>
         <Footer/>
       </>

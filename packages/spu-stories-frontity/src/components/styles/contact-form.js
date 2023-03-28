@@ -182,7 +182,7 @@ select.fsFieldState,
     width: calc(50% - 10px);
     margin-right: 0;
 }
-.fsSubFieldGroup .fsSubField:nth-child(1):nth-last-child(2).fsNameFirst{
+.fsSubFieldGroup .fsSubField:nth-of-type(1):nth-last-of-type(2).fsNameFirst{
   display: inline-block;
 }
 .wpcf7 input:not([type=submit]), .fsForm input:not([type=submit]){

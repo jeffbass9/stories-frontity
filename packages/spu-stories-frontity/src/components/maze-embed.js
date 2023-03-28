@@ -1,7 +1,8 @@
 import React from "react";
 import {Helmet} from "react-helmet";
+import { styled, keyframes, connect } from "frontity"
 
-export default function MazeEmbed(){
+const MazeEmbed = () => {
     return (
       <>
         <Helmet>
@@ -11,3 +12,5 @@ export default function MazeEmbed(){
       </>
     )
 }
+
+export default connect(MazeEmbed);

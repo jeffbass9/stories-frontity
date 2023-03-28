@@ -12,7 +12,7 @@ import parse from "html-react-parser"
 
 const reverseFormat = (query) => query.replace("+", " ");
 
-const SearchResults = ({ state }) => {
+const SearchResults = ({ state, actions }) => {
 
   // Get information about the current URL.
   const data = state.source.get(state.router.link);

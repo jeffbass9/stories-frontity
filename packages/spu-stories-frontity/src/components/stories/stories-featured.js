@@ -14,7 +14,7 @@ const StoriesFeatured = ({ state, actions}) => {
   const homepage_featured = homepage.acf.featured_article.ID
   const featured_post = state.source.article[homepage_featured]
   const featured_formatted_date = dayjs(featured_post.date).format("MMMM D, YYYY")
-  const featured_author = state.source.author[featured_post.author]
+  const featured_author = state.source.author[featured_post.post_author]
   const response_issues = state.source.get("/response-issues").items
   let featured_img
 
@@ -36,11 +36,11 @@ const StoriesFeatured = ({ state, actions}) => {
               <img src={featured_img}/>
             </div>
             <div className="featured-article">
-                <a href="#">
+                <Link link={featured_post.link}>
                   <h1>{parse(featured_post.title.rendered)}</h1>
                   {parse(featured_post.excerpt.rendered)}
-                  <p>By  - {featured_formatted_date}</p>
-                </a>
+                  <p>By Julia Siemens - {featured_formatted_date}</p>
+                </Link>
             </div>
         </div>
 
