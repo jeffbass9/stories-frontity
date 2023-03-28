@@ -1,4 +1,4 @@
-import React from "react"
+import { useEffect, React } from "react"
 import { connect, css, styled, Head } from "frontity"
 import Link from "@frontity/components/link"
 import SearchButton from "../components/search/search-button";
@@ -8,7 +8,9 @@ import response_logo from "/packages/spu-stories-frontity/src/images/response-lo
 import ResponseHeader from "../components/response/response-header"
 import StoriesHeader from "../components/stories/stories-header"
 
+
 const Header = ({ state, actions, props}) => {
+
   return(
       <StoriesHeader/>
   )

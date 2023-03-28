@@ -2,7 +2,7 @@ import React from "react";
 import { Global, css, connect } from "frontity";
 const pagesHandler = {
   name: "pages",
-  priority: 10,
+  priority: 11,
   pattern: "/pages/:id",
   func: async({link, params, state, libraries}) => {
     const { id } = params;

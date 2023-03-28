@@ -20,6 +20,7 @@ box-sizing: border-box;
   color: black;
   border-bottom: 7px solid black;
   width: 100%;
+  margin-top: 2em;
 }
 
 & .issue-article-container {

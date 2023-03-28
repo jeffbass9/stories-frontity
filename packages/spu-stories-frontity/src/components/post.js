@@ -9,6 +9,8 @@ import PostContent from "../components/styles/post-content"
 import PostInfo from "../components/styles/post-info"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import StoriesHeader from "../components/stories/stories-header"
+import StoriesFooter from "../components/stories/stories-footer"
 import ResponseHeader from "../components/response/response-header"
 import ResponseFooter from "../components/response/response-footer"
 
@@ -22,6 +24,7 @@ const Post = ({ state, libraries }) => {
   let response_department = post["response-department"]
   let page_template = post.template
   let header = <StoriesHeader/>
+  let footer = <StoriesFooter/>
 
   if(post.acf.article_full_hero){
     hero_img = post.acf.article_full_hero

@@ -1,6 +1,7 @@
 import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import useInView from "@frontity/hooks/use-in-view";
+import useExternalScripts from "../components/hooks/use-external-scripts"
 import FontFaces from "../components/styles/font-faces"
 import ImportedImages from "../components/styles/imported-images"
 import Link from "@frontity/components/link"
@@ -13,7 +14,6 @@ import HomePage from "../components/home-page"
 import ResponseIssue from "../components/response/response-issue"
 import SearchResults from "../components/search/search-results";
 import Error from "./error"
-
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)

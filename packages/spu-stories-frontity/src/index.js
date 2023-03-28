@@ -30,6 +30,7 @@ const spuStoriesFrontity = {
         await actions.source.fetch('/menu/footer-menu-2023');
         await actions.source.fetch('/menu/response-header-menu-2023');
         await actions.source.fetch('/menu/response-footer-menu-2023');
+        await actions.source.fetch('/response-issues');
         if (state.router.link === "/") {
           // Stop the server-side rendering (SSR) until this is ready.
           await actions.source.fetch("/homepage");
@@ -55,7 +56,7 @@ const spuStoriesFrontity = {
       processors: [image, iframe, link, source , headingInView]
     },
     source: {
-      handlers: [menuHandler, pagesHandler],
+      handlers: [menuHandler, pagesHandler, responseIssueHandler],
     }
   }
 }

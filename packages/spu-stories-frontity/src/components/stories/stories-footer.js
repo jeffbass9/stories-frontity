@@ -8,6 +8,7 @@ import youtube_icon from "/packages/spu-stories-frontity/src/images/icon--youtub
 import linkedin_icon from "/packages/spu-stories-frontity/src/images/icon--linkedin.svg"
 import tiktok_icon from "/packages/spu-stories-frontity/src/images/icon--tiktok.svg"
 import footer_background from "/packages/spu-stories-frontity/src/images/SPU_Main_LoRes_1210x580_acf_cropped.jpeg"
+import stories_logo from "/packages/spu-stories-frontity/src/images/spu-stories-logo.svg"
 import FooterContainer from "../../components/styles/footer-container"
 
 const StoriesFooter = ({ state, actions, props }) => {
@@ -16,7 +17,7 @@ const StoriesFooter = ({ state, actions, props }) => {
     <>
       <FooterContainer>
           <div className="footer-wrapper">
-              <h3>Response <span className="footer-magazine">Magazine</span></h3>
+              <img src={stories_logo}/>
               <div className="footer-items-container">
                 {footer_items.map((item) => {
                   return(

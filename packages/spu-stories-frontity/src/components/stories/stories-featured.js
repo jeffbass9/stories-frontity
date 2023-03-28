@@ -15,6 +15,7 @@ const StoriesFeatured = ({ state, actions}) => {
   const featured_post = state.source.article[homepage_featured]
   const featured_formatted_date = dayjs(featured_post.date).format("MMMM D, YYYY")
   const featured_author = state.source.author[featured_post.author]
+  const response_issues = state.source.get("/response-issues").items
   let featured_img
 
   if(featured_post.acf.article_full_hero){
@@ -24,7 +25,8 @@ const StoriesFeatured = ({ state, actions}) => {
   }
 
   const popular_articles = homepage.acf.popular_articles
-
+  const latest_response_id = response_issues[0].id
+  const latest_response = state.source.response_issue[latest_response_id]
 
   return(
     <>
@@ -47,29 +49,24 @@ const StoriesFeatured = ({ state, actions}) => {
             <div className="popular-article-sec">
                 <div className="popular-header">
                     <div className="featured-section-header">Popular Articles</div>
-                    <Link link="/about-response" className="popular-view-more">View More</Link>
+                    <Link link={"/articles"} className="popular-view-more">View More</Link>
                 </div>
                 <div className="popular-column">
                     {popular_articles.map((item) => {
-                      let featured_img = ""
                       let post_topic = ""
                       const formatted_date = dayjs(item.post_date).format("MMMM YYYY")
                       const post = state.source[item.post_type][item.ID]
-
-                      if(state.source.attachment[post.featured_media]){
-                        featured_img = state.source.attachment[post.featured_media].source_url
-                      }else{
-                        featured_img = post.acf.article_full_hero
-                      }
+                      let featured_img = post.acf.article_full_hero
+                      let category = ""
 
                       return (
-                        <Link key={item.ID} link={"/about"} className="popular-article-card">
+                        <Link key={item.ID} link={post.link} className="popular-article-card">
                           <div className="article-image">
                             <img src={featured_img}/>
                           </div>
                           <div className="text">
                               <div className="heading-content">
-                                  <div className="category"></div>
+                                  <div className="category">{category}</div>
                                   <div className="title">{item.post_title}</div>
                               </div>
                               <div className="date">{formatted_date}</div>
@@ -82,11 +79,11 @@ const StoriesFeatured = ({ state, actions}) => {
             </div>
             <div className="response-latest-sec">
                 <div className="featured-section-header">Response Latest Issue</div>
-                <Link link="/response-issues/faith-work/" className="response-latest-row">
-                  <div className="response-latest-cover"><img src={response_placeholder}/></div>
+                <Link link={latest_response.link} className="response-latest-row">
+                  <div className="response-latest-cover"><img src={latest_response.acf.response_cover}/></div>
                   <div className="text">
-                      <div className="header">Faith & Work</div>
-                      <div className="season">Fall/Winter 2022</div>
+                      <div className="header">{parse(latest_response.title.rendered)}</div>
+                      <div className="season">{latest_response.acf.response_issue_number}</div>
                   </div>
                 </Link>
             </div>
