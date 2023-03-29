@@ -40,7 +40,7 @@ const settings = {
           ],
           "taxonomies": [
             {
-              "taxonomy": "response_department",
+              "taxonomy": "response-department",
               "endpoint": "response-department",
               "postTypeEndpoint": "articles"
             },
