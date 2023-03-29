@@ -20,8 +20,8 @@ const SearchResults = ({ state, actions }) => {
   // data.total → total pages that match the current path/url
   // data.searchQuery → query done to get search results
   const { total, searchQuery } = data;
-
-  const newQuery = reverseFormat(data.searchQuery);
+  let actual_query = data.query.s;
+  const newQuery = reverseFormat(actual_query);
   const isEmpty = data.total === 0;
 
   return (
