@@ -27,43 +27,89 @@ const SearchResults = ({ state, actions }) => {
   return (
     <>
     <Header/>
-        <ArticleList>
+        <SearchResultContainer>
           <div className="section-header">Search results for "{newQuery}"</div>
-          <div className="issue-article-container">
+          <div className="search-results-container">
             {data.items.map((item) => {
               const post = state.source[item.type][item.id]
-              let featured_img = ""
               let post_topic = ""
-
-              if(state.source.attachment[post.featured_media]){
-                featured_img = state.source.attachment[post.featured_media].source_url
-              }else{
-                featured_img = post.acf.article_full_hero
-              }
-
               const formatted_date = dayjs(post.date).format("MMMM YYYY")
 
               return (
-                <Link key={item.id} link={post.link} className="article-card">
-                <div className="article-image">
-                <img src={featured_img}/>
-                </div>
-                  <div className="text">
-                      <div className="heading-content">
-                          <div className="category">{post_topic}</div>
-                          <div className="title">{parse(post.title.rendered)}</div>
-                      </div>
-                      <div className="date">{formatted_date}</div>
+                <Link key={item.id} link={post.link}>
+                  <div className="search-result">
+                    <div className="text">
+                        <div className="heading-content">
+                            <div className="category">{post_topic}</div>
+                            <div className="title">{parse(post.title.rendered)}</div>
+                            <div className="date">{formatted_date}</div>
+                            <div className="excerpt">{parse(post.excerpt.rendered)}</div>
+                        </div>
+                    </div>
                   </div>
-                  <br />
                 </Link>
               )
             })}
           </div>
-        </ArticleList>
+        </SearchResultContainer>
       <Footer/>
     </>
   );
 };
 
 export default connect(SearchResults);
+
+const SearchResultContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin: 0 auto;
+padding: 0 1em;
+gap: 60px;
+width: 100%;
+max-width: 1512px;
+box-sizing: border-box;
+& .section-header{
+  font-family: 'Inter Bold',sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 31px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: black;
+  border-bottom: 7px solid black;
+  width: 100%;
+  margin-top: 2em;
+}
+& .search-result{
+  margin: 1em 0;
+  padding: 1em;
+}
+& .text{
+  border-bottom: solid;
+}
+& .title{
+  font-family: 'Inter SemiBold',sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 31px;
+  color: #3E2B2E;
+  width: 100%;
+  padding: 16px;
+}
+& .date{
+  font-family: 'Inter',sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #3E2B2E;
+  width: 100%;
+  padding: 0 16px 16px;
+}
+& .excerpt{
+  color: #3E2B2E;
+  font-size: 20px;
+  padding: 16px;
+}
+
+`

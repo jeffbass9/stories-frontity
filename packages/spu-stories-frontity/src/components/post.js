@@ -19,7 +19,7 @@ const Post = ({ state, libraries }) => {
   const post = state.source[data.type][data.id]
   const author = state.source.author[post.author]
   const Html2React = libraries.html2react.Component
-  const formattedDate = dayjs(post.date).format("MMMM DD YYYY")
+  const formattedDate = dayjs(post.date).format("MMMM DD, YYYY")
   let hero_img = hero_wide_placeholder
   let response_department = post["response-department"]
   let page_template = post.template
@@ -32,7 +32,7 @@ const Post = ({ state, libraries }) => {
     hero_img = state.source.attachment[post.featured_media].source_url
   }
 
-  if(response_department){
+  if(response_department[0]){
     header = <ResponseHeader/>
     footer = <ResponseFooter/>
   }else{
@@ -47,7 +47,7 @@ const Post = ({ state, libraries }) => {
           <img src={hero_img}/>
           <PostInfo>
             <h1>{parse(post.title.rendered)}</h1>
-            <h2>{author}</h2>
+            <h2></h2>
             <h3>{formattedDate}</h3>
           </PostInfo>
         </PostHeader>
