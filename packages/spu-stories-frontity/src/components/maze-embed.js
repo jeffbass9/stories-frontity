@@ -1,16 +1,29 @@
-import React from "react";
-import {Helmet} from "react-helmet";
-import { styled, keyframes, connect } from "frontity"
+import { useEffect } from 'react'
 
 const MazeEmbed = () => {
-    return (
-      <>
-        <Helmet>
-        <script src="https://snippet.maze.co/maze-universal-loader.js?t=1679942175589&apiKey=8da20661-5388-4399-a78e-1392b43fe3d7" async></script>
-        <script src="https://snippet.maze.co/contextualScaffold.js?t=1679942175589" async></script>
-        </Helmet>
-      </>
-    )
+
+  const markup = { __html: `(function (m, a, z, e) {
+    var s, t;
+    try {
+      t = m.sessionStorage.getItem('maze-us');
+    } catch (err) {}
+
+    if (!t) {
+      t = new Date().getTime();
+      try {
+        m.sessionStorage.setItem('maze-us', t);
+      } catch (err) {}
+    }
+
+    s = a.createElement('script');
+    s.src = z + '?t=' + t + '&apiKey=' + e;
+    s.async = true;
+    a.getElementsByTagName('head')[0].appendChild(s);
+    m.mazeUniversalSnippetApiKey = e;
+    })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '8da20661-5388-4399-a78e-1392b43fe3d7');` };
+
+    return <script dangerouslySetInnerHTML={markup} />;
+
 }
 
-export default connect(MazeEmbed);
+export default MazeEmbed

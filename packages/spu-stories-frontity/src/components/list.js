@@ -11,12 +11,30 @@ import Footer from "../components/footer"
 
 const List = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
+  let current_url = state.router.link
+  let title = "Latest Articles"
+
+  if(current_url == "/response-department/home/"){
+    title = "Campus News";
+  }else if(current_url == "/response-department/alumni/"){
+    title = "Alumni News";
+  }else if(current_url == "/response-department/features/"){
+    title = "Features";
+  }else if(current_url == "/response-department/class-notes/"){
+    title = "Reflections";
+  }else if(current_url == "/response-department/in-the-loop/"){
+    title = "Life at SPU";
+  }else if(current_url == "/topic/response-magazine/"){
+    title = "Response Departments";
+  }else{
+    title = "Latest Articles"
+  }
 
   return (
     <>
       <Header/>
         <ArticleList>
-          <div className="section-header">Latest Articles</div>
+          <div className="section-header">{title}</div>
             <div className="issue-article-container">
                 {data.items.map((item) => {
                   const post = state.source[item.type][item.id]

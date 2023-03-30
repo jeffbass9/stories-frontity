@@ -6,8 +6,7 @@ const FooterContainer = styled.footer`
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  position: absolute;
-  object-position: center bottom;
+  position: relative;
   bottom: 0;
   padding-left: calc(50vw - 4rem);
   @media only screen and (max-width: 1024px) {
@@ -24,7 +23,7 @@ const FooterContainer = styled.footer`
     float: right;
     width: 100%;
     right: 0;
-    top: -4rem;
+    top: -1rem;
     gap: 18px;
     z-index: 2;
     box-sizing: border-box;

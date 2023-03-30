@@ -12,8 +12,9 @@ import Post from "../components/post"
 import Page from "../components/page"
 import HomePage from "../components/home-page"
 import ResponseIssue from "../components/response/response-issue"
-import SearchResults from "../components/search/search-results";
+import SearchResults from "../components/search/search-results"
 import Error from "./error"
+import MazeEmbed from "../components/maze-embed"
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
@@ -27,6 +28,7 @@ const Root = ({ state, actions }) => {
       <title>SPU Stories</title>
       <meta name="author" content="Thy Tran"/>
     </Head>
+    <MazeEmbed/>
     <FontFaces/>
     <Global
       styles={css`
@@ -57,8 +59,6 @@ const Root = ({ state, actions }) => {
           width: 100%;
         }
         iframe{
-          height: 2000px;
-          overflow: hidden;
           border: none;
         }
 
@@ -105,13 +105,11 @@ const Main = styled.main`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  padding-bottom: 600px;
   margin-top: 50px;
   width: 100%;
 
   @media screen and (min-width: 1024px){
     margin-top: 116px;
-    padding-bottom: 550px;
   }
 `
 
