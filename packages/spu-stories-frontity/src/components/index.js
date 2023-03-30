@@ -40,6 +40,7 @@ const Root = ({ state, actions }) => {
         a {
           vertical-align: baseline;
           color: #651D32;
+          transition: text-decoration 0.1s ease;
           &:hover{
             color: #872937;
           }
@@ -104,13 +105,13 @@ const Main = styled.main`
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  padding-bottom: 70rem;
+  padding-bottom: 600px;
   margin-top: 50px;
   width: 100%;
 
   @media screen and (min-width: 1024px){
     margin-top: 116px;
-    padding-bottom: 900px;
+    padding-bottom: 550px;
   }
 `
 

@@ -3,11 +3,11 @@ import { Global, css, connect } from "frontity";
 const responseIssueHandler = {
   name: "response-issues",
   priority: 12,
-  pattern: "/response-issues/:id",
+  pattern: "/response-issues",
   func: async({link, params, state, libraries}) => {
     const { id } = params;
     const response = await libraries.source.api.get({
-      endpoint: `/wp/v2/response_issues/${id}`
+      endpoint: `/wp/v2/response-issues/`
     });
 
     const pageData = await response.json();

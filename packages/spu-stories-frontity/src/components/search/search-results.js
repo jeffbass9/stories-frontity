@@ -63,12 +63,15 @@ const SearchResultContainer = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-margin: 0 auto;
+margin: 0 auto 2em;
 padding: 0 1em;
 gap: 60px;
 width: 100%;
 max-width: 1512px;
 box-sizing: border-box;
+@media screen and (min-width: 1024px){
+  margin: 0 auto 8em;
+}
 & .section-header{
   font-family: 'Inter Bold',sans-serif;
   font-weight: 700;

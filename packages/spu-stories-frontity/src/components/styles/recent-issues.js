@@ -99,6 +99,7 @@ box-sizing: border-box;
         margin-bottom: 16px;
       }
     }
+
     img {
       display: block;
       width: 100%;
@@ -107,11 +108,20 @@ box-sizing: border-box;
       background-size: cover;
       height: 16vw;
       object-fit: cover;
+      transition: all 0.3s ease;
       @media only screen and (max-width: 1390px) and (min-width: 376px) {
         height: 48vw;
       }
       @media only screen and (max-width: 375px) {
         height: 120vw;
+      }
+    }
+    & .issue-image{
+      overflow: hidden;
+      &:hover{
+        img{
+          transform: scale(1.1);
+        }
       }
     }
     .text {

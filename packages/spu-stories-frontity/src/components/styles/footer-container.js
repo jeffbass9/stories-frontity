@@ -35,6 +35,7 @@ const FooterContainer = styled.footer`
       line-height: 88px;
       text-transform: capitalize;
       color: black;
+      margin: 0;
       @media only screen and (max-width: 620px) {
         font-size: 40px;
         line-height: 48px;
@@ -113,6 +114,10 @@ const FooterContainer = styled.footer`
     height: 670px;
     top: 17.79%;
     z-index: 1;
+  }
+  .footer-stories-logo{
+    width: 250px;
+    height: auto;
   }
   .footer-magazine {
     font-size: 30px;

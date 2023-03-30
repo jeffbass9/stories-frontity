@@ -206,7 +206,6 @@ const SearchInput = styled.input`
     font-size: 1.5rem;
   }
   &:focus {
-    outline: solid #872937;
     outline-offset: -4px;
   }
 `;

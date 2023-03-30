@@ -17,7 +17,7 @@ const StoriesFooter = ({ state, actions, props }) => {
     <>
       <FooterContainer>
           <div className="footer-wrapper">
-              <img src={stories_logo}/>
+              <img src={stories_logo} className="footer-stories-logo"/>
               <div className="footer-items-container">
                 {footer_items.map((item) => {
                   return(

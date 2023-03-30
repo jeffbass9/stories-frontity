@@ -33,7 +33,9 @@ const StoriesFeatured = ({ state, actions}) => {
       <FeaturedContainer>
         <div>
             <div className="stories-featured-img">
-              <img src={featured_img}/>
+              <Link link={featured_post.link}>
+                <img src={featured_img}/>
+              </Link>
             </div>
             <div className="featured-article">
                 <Link link={featured_post.link}>
@@ -130,10 +132,15 @@ grid-template-columns: 3fr 3fr;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    overflow: hidden;
     & img {
       width: 100%;
       aspect-ratio: 1/1;
       object-fit: cover;
+      transition: all 0.3s ease;
+    }
+    &:hover img{
+      transform: scale(1.1);
     }
   }
   & .featured-content {
@@ -311,6 +318,7 @@ grid-template-columns: 3fr 3fr;
           padding: 0;
           box-sizing: border-box;
           position: relative;
+          overflow: hidden;
           & img {
             display: block;
             background-repeat: no-repeat;
@@ -319,6 +327,10 @@ grid-template-columns: 3fr 3fr;
             width: 100%;
             height: auto;
             object-fit: cover;
+            transition: all 0.3s ease;
+          }
+          &:hover img{
+            transform: scale(1.1);
           }
         }
         & .text {

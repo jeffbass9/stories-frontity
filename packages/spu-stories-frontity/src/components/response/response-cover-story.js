@@ -49,7 +49,6 @@ grid-template-columns: 3fr 3fr;
   justify-content: center;
   flex-direction: column;
   border-bottom: 1px solid black;
-  border-right: 1px solid black;
   padding: 30px 120px;
   width: 100%;
   box-sizing: border-box;

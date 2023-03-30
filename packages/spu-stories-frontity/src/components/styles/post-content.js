@@ -2,14 +2,17 @@ import { styled } from "frontity";
 
 const PostContent = styled.div`
 font-family: "Inter Light", sans-serif;
-line-height: 16px;
 text-align: center;
 width: 100%;
 .post-content__inner{
   width: 100%;
   max-width: 1080px;
-  margin: 3em auto 0 auto;
+  margin: 3em auto 2em auto;
   padding: 0 1em;
+  box-sizing: border-box;
+  @media screen and (min-width: 1024px){
+    margin: 3em auto 8em auto;
+  }
   span{
     display: none;
   }
@@ -20,9 +23,9 @@ width: 100%;
 p {
   text-align: left;
   margin: 0 auto 36px auto;
-  font-size: 12px;
+  font-size: 16px;
   max-width: 1080px;
-  @media screen and (min-width: 620px){
+  @media screen and (min-width: 1024px){
     font-size: 22px;
   }
 }

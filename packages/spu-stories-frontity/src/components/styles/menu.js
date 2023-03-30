@@ -28,6 +28,7 @@ a{
   font-size: 16px;
   margin: auto;
   width: 100%;
+  transition: all 0.1s ease;
   &:hover:not(.active) {
     background-color: #872937;
     color: white;

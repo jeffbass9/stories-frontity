@@ -50,6 +50,7 @@ box-sizing: border-box;
       padding: 0;
       box-sizing: border-box;
       position: relative;
+      overflow: hidden;
       & img {
         display: block;
         position: absolute;
@@ -58,6 +59,10 @@ box-sizing: border-box;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: all 0.3s ease;
+      }
+      &:hover img{
+        transform: scale(1.1);
       }
     }
   }
