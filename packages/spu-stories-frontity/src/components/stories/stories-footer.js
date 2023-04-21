@@ -35,7 +35,7 @@ const StoriesFooter = ({ state, actions, props }) => {
                   <img src={linkedin_icon}/>
                   <img src={tiktok_icon}/>
               </div>
-              <div className="copyright">© 2022 Seattle Pacific University</div>
+              <div className="copyright">© 2023 Seattle Pacific University</div>
           </div>
           <div className="footer-image">
               <img src={footer_background}/>

@@ -6,6 +6,7 @@ import article_placeholder from "/packages/spu-stories-frontity/src/images/artic
 import dayjs from "dayjs"
 import returnFeaturedImage from "../services/returnFeaturedImage"
 import ArticleList from "../components/styles/article-list"
+import Button from "../components/styles/button"
 import Header from "../components/header"
 import Footer from "../components/footer"
 
@@ -67,22 +68,22 @@ const List = ({ state, actions }) => {
                 })}
                 <PrevNextNav>
                   {data.previous && (
-                    <button
+                    <Button
                       onClick={() => {
                         actions.router.set(data.previous)
                       }}
                     >
                       &#171; Prev
-                    </button>
+                    </Button>
                   )}
                   {data.next && (
-                    <button
+                    <Button
                       onClick={() => {
                         actions.router.set(data.next)
                       }}
                     >
                       Next &#187;
-                    </button>
+                    </Button>
                   )}
                 </PrevNextNav>
           </div>

@@ -13,9 +13,6 @@ width: 100%;
   @media screen and (min-width: 1024px){
     margin: 3em auto 8em auto;
   }
-  span{
-    display: none;
-  }
 }
 @media screen and (min-width: 620px){
   line-height: 36px;
@@ -64,6 +61,74 @@ blockquote{
 }
 .meta .date{
   display: none;
+}
+
+.callout{
+	padding: 2em;
+	margin: 2em;
+	box-sizing: border-box;
+	float: right;
+	background-color: #E5E5E0;
+	width: 50%;
+	font-size: 14px;
+}
+.callout h4{
+	margin: 0;
+}
+.callout p{
+	font-size: 16px;
+	text-align: center;
+}
+h5.callout__number{
+	font-size: 45px;
+	text-align: center;
+	margin: 1em;
+}
+.callout-wide{
+	width: 100%;
+	float: none;
+	margin: 0;
+	font-size: 18px;
+}
+.callout-wide h3{
+	margin-top: 0;
+}
+p.callout-number{
+	font-size: 64px;
+	font-weight: 800;
+	margin: 0;
+}
+.callout .alignright{
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+.callout ul{
+	padding-inline-start: 20px;
+}
+.wp-caption.alignright{
+  float: right;
+  text-align: left;
+  display: inline-block;
+  margin: 0 0 1em 2em;
+  & span{
+    padding-bottom: 0;
+  }
+  & img{
+    height: auto;
+  }
+}
+.wp-caption.alignleft{
+  float: left;
+  text-align: left;
+  display: inline-block;
+  margin: 0 1em 2em 0;
+  & span{
+    padding-bottom: 0;
+  }
+  & img{
+    height: auto;
+  }
 }
 `
 export default PostContent;

@@ -2,6 +2,7 @@ import React from "react"
 import { connect, Global, css, styled, Head } from "frontity"
 import useInView from "@frontity/hooks/use-in-view";
 import useExternalScripts from "../components/hooks/use-external-scripts"
+import parse from "html-react-parser"
 import FontFaces from "../components/styles/font-faces"
 import ImportedImages from "../components/styles/imported-images"
 import Link from "@frontity/components/link"
@@ -18,7 +19,6 @@ import MazeEmbed from "../components/maze-embed"
 
 const Root = ({ state, actions }) => {
   const data = state.source.get(state.router.link)
-
   return (
     <>
     <Head>

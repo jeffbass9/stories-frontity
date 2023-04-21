@@ -17,9 +17,11 @@ const settings = {
         "source": {
           "url": "https://stories.spu.edu",
           "postEndpoint": "articles",
+          "homepage": "/",
+          "postsPage": "/",
           "params": {
             "per_page": 20,
-            "type": ["article", "page", "response_issue", "author"]
+            "type": ["article", "page", "response_issue", "spu_user"]
           },
           "postTypes": [
             {
@@ -36,6 +38,11 @@ const settings = {
               "type": "menus",
               "endpoint": "menus",
               "archive": "/menus"
+            },
+            {
+              "type": "spu-users",
+              "endpoint": "spu-users",
+              "archive": "/spu-users"
             }
           ],
           "taxonomies": [
@@ -66,8 +73,7 @@ const settings = {
         }
       }
     },
-    "@frontity/html2react",
-    "@aamodtgroup/frontity-contact-form-7"
+    "@frontity/html2react"
   ]
 };
 

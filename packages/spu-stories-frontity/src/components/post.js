@@ -17,7 +17,8 @@ import ResponseFooter from "../components/response/response-footer"
 const Post = ({ state, libraries }) => {
   const data = state.source.get(state.router.link)
   const post = state.source[data.type][data.id]
-  const author = state.source.author[post.author]
+  const user_items = state.source.get('/spu-users').items;
+
   const Html2React = libraries.html2react.Component
   const formattedDate = dayjs(post.date).format("MMMM DD, YYYY")
   let hero_img = hero_wide_placeholder
@@ -25,6 +26,14 @@ const Post = ({ state, libraries }) => {
   let page_template = post.template
   let header = <StoriesHeader/>
   let footer = <StoriesFooter/>
+  const author_id = post.author
+  let author_name = ""
+
+  user_items.map(author=>{
+    if(author.user_id == author_id){
+      author_name = author.display_name
+    }
+  })
 
   if(post.acf.article_full_hero){
     hero_img = post.acf.article_full_hero
@@ -46,14 +55,15 @@ const Post = ({ state, libraries }) => {
         <PostHeader>
           <img src={hero_img}/>
           <PostInfo>
-            <h1>{parse(post.title.rendered)}</h1>
-            <h2></h2>
+            <h1 className={data.id}>{parse(post.title.rendered)}</h1>
+            <h2>{author_name}</h2>
             <h3>{formattedDate}</h3>
           </PostInfo>
         </PostHeader>
 
         <PostContent>
           <div className="post-content__inner">
+            <Html2React html={post.acf.article_intro} />
             <Html2React html={post.content.rendered} />
           </div>
         </PostContent>
