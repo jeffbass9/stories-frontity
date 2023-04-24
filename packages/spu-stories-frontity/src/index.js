@@ -10,6 +10,7 @@ import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import source from "./processors/source"
 import headingInView from "./processors/heading-in-view"
+import spuImage from "./processors/spu-image"
 
 const spuStoriesFrontity = {
   name: "spu-stories-frontity",
@@ -56,7 +57,7 @@ const spuStoriesFrontity = {
   },
   libraries: {
     html2react: {
-      processors: [iframe, link, source, headingInView]
+      processors: [iframe, link, source, spuImage, headingInView]
     },
     source: {
       handlers: [menuHandler, pagesHandler, responseIssueHandler, responseDepartmentHandler, spuUsersHandler],

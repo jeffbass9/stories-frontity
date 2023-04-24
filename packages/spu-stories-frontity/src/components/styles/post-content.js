@@ -39,6 +39,10 @@ h3{
     font-size: 16px;
   }
 }
+img{
+  height: auto;
+  max-width: 100%;
+}
 & .description{
   font-size: 1.3em;
   max-width: 1080px;
@@ -128,6 +132,20 @@ p.callout-number{
   }
   & img{
     height: auto;
+  }
+}
+span.alignright{
+  float: right;
+  margin: 0 0 0 1em;
+}
+span.alignleft{
+  float: left;
+  margin: 0 1em 0 0;
+}
+span.aligncenter {
+  text-align: center;
+  img{
+    margin: auto;
   }
 }
 `

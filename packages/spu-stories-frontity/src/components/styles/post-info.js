@@ -24,6 +24,7 @@ h1{
   font-weight: bold;
   margin: 0;
   color: #000004;
+  text-align: center;
   @media screen and (min-width: 1024px){
     font-size: 52px;
   }
