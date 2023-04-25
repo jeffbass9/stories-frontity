@@ -1,5 +1,6 @@
 import Root from "./components"
 import link from "@frontity/html2react/processors/link";
+import articlesHandler from "./components/handlers/articles-handler";
 import menuHandler from "./components/handlers/menu-handler";
 import pagesHandler from "./components/handlers/pages-handler";
 import homepageHandler from "./components/handlers/homepage-handler";
@@ -30,10 +31,10 @@ const spuStoriesFrontity = {
         state.theme.isUrlVisible = !state.theme.isUrlVisible
       },
       beforeSSR: async({state, actions}) =>{
-        await actions.source.fetch('/menu/header-menu-2023');
-        await actions.source.fetch('/menu/footer-menu-2023');
-        await actions.source.fetch('/menu/response-header-menu-2023');
-        await actions.source.fetch('/menu/response-footer-menu-2023');
+        await actions.source.fetch("/menu/header-menu-2023");
+        await actions.source.fetch("/menu/footer-menu-2023");
+        await actions.source.fetch("/menu/response-header-menu-2023");
+        await actions.source.fetch("/menu/response-footer-menu-2023");
         await actions.source.fetch("/homepage");
         await actions.source.fetch("/response-issues");
         await actions.source.fetch("/response-department");
@@ -60,7 +61,7 @@ const spuStoriesFrontity = {
       processors: [iframe, link, source, spuImage, headingInView]
     },
     source: {
-      handlers: [menuHandler, pagesHandler, responseIssueHandler, responseDepartmentHandler, spuUsersHandler],
+      handlers: [articlesHandler, menuHandler, pagesHandler, responseIssueHandler, responseDepartmentHandler, spuUsersHandler],
     }
   }
 }

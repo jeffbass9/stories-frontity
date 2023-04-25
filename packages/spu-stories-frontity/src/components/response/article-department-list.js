@@ -14,18 +14,19 @@ const ArticleDepartmentList = ({ state, actions, issue_posts, department_id, dep
 
   let dept_posts = []
 
-  for(let i = 0; i<posts.length; i++){
-    let current = posts[i]
-    let current_depts = current["response-department"]
-    console.table(current_depts)
-    for(let j=0; j<current_depts.length; j++){
-      if (current["response-department"][j] == department){
-        dept_posts.push(current)
+  if(posts.length > 0){
+    for(let i = 0; i<posts.length; i++){
+      let current = posts[i]
+      let full = state.source[current.type][current.id]
+      let current_depts = full["response-department"]
+      console.table(current_depts)
+      for(let j=0; j<current_depts.length; j++){
+        if (current_depts[j] == department){
+          dept_posts.push(current)
+        }
       }
     }
   }
-
-  console.log("dept_posts:" + dept_posts);
 
   return (
     <ArticleList>

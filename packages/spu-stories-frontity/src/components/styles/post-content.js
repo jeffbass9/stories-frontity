@@ -13,6 +13,12 @@ width: 100%;
   @media screen and (min-width: 1024px){
     margin: 3em auto 8em auto;
   }
+  h4{
+    font-family: "Inter",sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 22px;
+  }
 }
 @media screen and (min-width: 620px){
   line-height: 36px;
@@ -22,6 +28,7 @@ p {
   margin: 0 auto 36px auto;
   font-size: 16px;
   max-width: 1080px;
+  line-height: 1.5;
   @media screen and (min-width: 1024px){
     font-size: 22px;
   }

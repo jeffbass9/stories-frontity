@@ -20,7 +20,7 @@ const LatestArticles = ({ state, actions }) => {
       <div className="section-header">Latest Articles</div>
       <div className="issue-article-container">
         {articles.map((item) => {
-          const post = state.source[item.type][item.id]
+          let post = state.source[item.type][item.id]
           let featured_img = article_placeholder
           let post_topic = ""
 

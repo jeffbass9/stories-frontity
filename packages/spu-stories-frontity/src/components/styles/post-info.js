@@ -32,7 +32,6 @@ h1{
 h2{
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 28px;
   color: #221E1F;
   @media screen and (min-width: 1024px){
     font-size: 28px;

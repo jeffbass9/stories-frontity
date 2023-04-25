@@ -10,8 +10,21 @@ import { connect, Head } from "frontity"
 const ResponseIssue = ({ state, libraries }) => {
 
   const data = state.source.get(state.router.link)
-  const issue = state.source[data.type][data.id]
-  const posts = state.source.get("/articles")
+  const issue = data.id
+  const articles_data = state.source.get("/articles")
+  let articles = articles_data.items
+  let issue_posts = []
+
+  if(articles.length > 0){
+    for(let i = 0; i<articles.length; i++){
+      let current = articles[i]
+      let full = state.source[current.type][current.id]
+      if (full.acf.article_issue == issue){
+        issue_posts.push(full)
+      }
+    }
+  }
+
   const departments = [
     {
       "name": "Features",
@@ -50,16 +63,6 @@ const ResponseIssue = ({ state, libraries }) => {
       "ID": 592
     }
   ]
-
-  let issue_posts = []
-
-  for(let i = 0; i<posts.length; i++){
-    let current = posts[i]
-    console.log("current = " + current)
-    if (current.acf.article_issue == issue){
-      issue_posts.push(current)
-    }
-  }
 
   const Html2React = libraries.html2react.Component
 
