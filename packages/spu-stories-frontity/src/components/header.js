@@ -10,10 +10,16 @@ import StoriesHeader from "../components/stories/stories-header"
 
 
 const Header = ({ state, actions, props}) => {
-
-  return(
+  if(state.router.link == "/about-response/"){
+    return(
+      <ResponseHeader/>
+    )
+  }else{
+    return(
       <StoriesHeader/>
-  )
+    )
+  }
+
 
 }
 

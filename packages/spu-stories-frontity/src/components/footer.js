@@ -13,9 +13,15 @@ import StoriesFooter from "../components/stories/stories-footer"
 
 const Footer = ({ state, actions }) => {
 
-  return(
-    <StoriesFooter/>
-  )
+  if(state.router.link == "/about-response/"){
+    return(
+      <ResponseFooter/>
+    )
+  }else{
+    return(
+      <StoriesFooter/>
+    )
+  }
 
 }
 

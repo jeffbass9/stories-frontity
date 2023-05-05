@@ -1,9 +1,9 @@
 import React from "react";
 import { Global, css, connect } from "frontity";
 const responseDepartmentHandler = {
-  name: "response-department",
+  name: "response_department",
   priority: 12,
-  pattern: "/response-department",
+  pattern: "/response-department/",
   func: async({link, params, state, libraries}) => {
     const { id } = params;
     const response = await libraries.source.api.get({

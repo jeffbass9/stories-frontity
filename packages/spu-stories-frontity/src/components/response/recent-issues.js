@@ -34,8 +34,8 @@ const RecentIssues = ({ state, actions }) => {
                   <img src={featured_img}/>
                 </div>
                 <div className="text">
-                    <div className="quarter">{quarter}</div>
-                    <div className="title">{parse(title)}</div>
+                    <h3 className="quarter">{quarter}</h3>
+                    <h4 className="title">{parse(title)}</h4>
                 </div>
               </Link>
               )

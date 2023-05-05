@@ -33,10 +33,10 @@ export default connect(ResponseCoverStory);
 const CoverStory = styled.section`
 position: relative;
 display: grid;
-grid-template-columns: 3fr 3fr;
-@media only screen and (max-width: 620px) {
+grid-template-columns: 1fr;
+@media only screen and (min-width: 767px) {
   display: grid;
-  grid-template-columns: 6fr;
+  grid-template-columns: 1fr 1fr;
 }
 & a:hover {
   text-decoration-line: underline;
@@ -46,28 +46,28 @@ grid-template-columns: 3fr 3fr;
 }
 & div:first-of-type {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   border-bottom: 1px solid black;
-  padding: 30px 120px;
+  border-right: 1px solid black;
+  padding: 18px;
   width: 100%;
   box-sizing: border-box;
-  @media only screen and (max-width: 620px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-    padding: 18px;
-    transition: 0.5s ease;
-  }
-  @media only screen and (max-width: 1024px) {
-    display: flex;
+  transition: 0.5s ease;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  @media only screen and (min-width: 620px) {
     justify-content: center;
-    flex-direction: column;
-    border-bottom: 1px solid black;
-    border-right: 1px solid black;
     padding: 24px 32px;
-    width: 100%;
+  }
+  @media only screen and (min-width: 767px) {
+    justify-content: space-around;
+    border-right: none;
+    padding: 30px 120px;
+    grid-row-start: 1;
+    grid-row-end: 2;
   }
   & h1 {
     font-family: "Sang Bleu Empire Bold", serif;
@@ -111,6 +111,16 @@ grid-template-columns: 3fr 3fr;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  @media only screen and (min-width: 767px) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
 }
 & .featured-img {
   background-image: url(${featured_img});

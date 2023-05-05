@@ -7,7 +7,8 @@ const articlesHandler = {
   func: async({link, params, state, libraries}) => {
     const { id } = params;
     const response = await libraries.source.api.get({
-      endpoint: `/wp/v2/articles/`
+      endpoint: `/wp/v2/articles/`,
+      per_page: 1000
     });
 
     const pageData = await response.json();
